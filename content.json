@@ -1,0 +1,168 @@
+
+{
+  "aboutPage": {
+    "avatar": { 
+      "src": "/profile.jpg", 
+      "alt": "Siddharth Vikram Singh", 
+      "hint": "profile photo", 
+      "width": 600, 
+      "height": 900 
+    },
+    "bio": "For me, technology is a tool for translation. It’s about taking a complex business process—with all its messy human inputs and hidden steps—and turning it into an automated workflow that is not only efficient, but also understandable and trustworthy.",
+    "passion": "My passion lies at the intersection of business analysis and AI engineering, finding the simplest, most robust path to a solution that delivers real value. This started during my BBA in Oil & Gas Marketing at UPES, where I first explored market trends and stakeholder dynamics, and evolved through my ongoing PGDM in Finance at Jaipuria, blending strategic thinking with tech innovation.",
+    "journey": [
+      {
+        "year": "July 2024 – Present",
+        "title": "AI Project (Consulting Prototypes)",
+        "organization": "Freelance",
+        "description": "Designed LLM-based automation workflows (OpenAI/Gemini APIs); achieved efficiency through ethical implementations and ROI evaluation."
+      },
+      {
+        "year": "June – July 2024",
+        "title": "Business Analyst Intern",
+        "organization": "Immverse Innovation Pvt Ltd, Nagpur",
+        "description": "Advised on AI-CRM integrations via LLM research; delivered reports for 20-30% efficiency gains, collaborating with CEO and external stakeholders."
+      },
+      {
+        "year": "2023 – 2026 (Ongoing)",
+        "title": "PGDM (Finance)",
+        "organization": "Jaipuria Institute of Management, Lucknow",
+        "description": "Deepening finance strategy with AI integration for business optimization."
+      },
+      {
+        "year": "Nov 2022 – Apr 2023",
+        "title": "Freelance Content Writer",
+        "organization": "Remote",
+        "description": "Created audience-focused content with in-depth research, enhancing digital narratives."
+      },
+      {
+        "year": "Oct 2021 – Mar 2022",
+        "title": "Freelance Digital Marketing Associate",
+        "organization": "Remote",
+        "description": "Consulted on AI-assisted SEO/social strategies; drove 20% engagement via performance audits and content optimization."
+      },
+      {
+        "year": "Apr 2021 – Feb 2022",
+        "title": "Event Manager",
+        "organization": "LearnVault",
+        "description": "Advised on AI-enhanced campaigns; boosted attendance 30% through targeted consulting and UX implementations."
+      },
+      {
+        "year": "June – July 2021",
+        "title": "Business Development Intern",
+        "organization": "Crop Shop (Remote)",
+        "description": "Consulted on client workflows with market research; advised on AI-enhanced lead generation, achieving 20% response uplift."
+      },
+      {
+        "year": "2019 – 2022",
+        "title": "BBA (Oil & Gas Marketing)",
+        "organization": "University of Petroleum & Energy Studies",
+        "description": "Gained expertise in market analysis and strategic thinking, setting the stage for digital and AI applications. 7.09 CGPA."
+      },
+      {
+        "year": "2017 – 2019",
+        "title": "Senior Secondary (CBSE)",
+        "organization": "Surmount International School",
+        "description": "Developed communication and commerce basics, sparking interest in business strategy. 64.4%."
+      },
+      {
+        "year": "2015 – 2017",
+        "title": "Secondary Education (CBSE)",
+        "organization": "RPM Academy",
+        "description": "Built foundational analytical skills through structured learning. 8.6 CGPA."
+      }
+    ],
+    "competencies": [
+      {
+        "title": "AI Engineering",
+        "description": "Prototyping with OpenAI & Gemini APIs for data extraction and automated workflows, with a focus on bias mitigation and ROI."
+      },
+      {
+        "title": "Business Analysis",
+        "description": "Translating complex business processes into efficient, understandable, and trustworthy automated systems."
+      },
+      {
+        "title": "Digital Strategy",
+        "description": "Crafting data-driven social media and marketing strategies that resonate with audiences and deliver measurable engagement."
+      }
+    ],
+    "mission": "In practice, I've advised on AI-CRM integrations at Immverse, delivering 20-30% efficiency gains through LLM research and ethical implementations. As a freelance digital marketer, I optimized social strategies for 20-40% engagement uplifts, crafting narratives that resonate. My prototypes—using OpenAI and Gemini APIs—automate data extraction and workflows, always prioritizing bias mitigation and ROI.\n\nI'm driven to create AI that empowers enterprises. Whether researching industry problems or collaborating on cross-functional teams, I focus on scalable, human-centered solutions that turn ambition into impact.",
+    "recognition": [
+      {
+        "title": "Top 25% Global Talent",
+        "organization": "The Talent Games",
+        "date": "Nov 2024"
+      }
+    ],
+    "certifications": [
+      "Generative AI Mastermind (LLM & Consulting Focus) - Outskill",
+      "Fundamentals of Business Analytics - Coursera",
+      "Supply Chain Principles - Coursera",
+      "Investment Banking Simulation - JP Morgan Chase",
+      "Mastering Financial Insight: Analytics Excellence - EY",
+      "Design Thinking for Innovation - Jaipuria Institute of Management"
+    ]
+  },
+  "agentStack": [
+    {
+      "title": "Outbound Sales Agent",
+      "description": "Automated prospecting and personalized outreach at scale.",
+      "icon": "sales"
+    },
+    {
+      "title": "Voice Agent",
+      "description": "Natural language voice interfaces for customer support.",
+      "icon": "voice"
+    },
+    {
+      "title": "Research Agent",
+      "description": "Deep-web data extraction and synthesis for market intelligence.",
+      "icon": "research"
+    },
+    {
+      "title": "Workflow Architect",
+      "description": "Connecting disparate SaaS tools into unified agentic pipelines.",
+      "icon": "workflow"
+    }
+  ],
+  "projects": [
+    { 
+      "id": "agent-1", 
+      "slug": "automated-lead-follow-up", 
+      "category": "agentic-systems", 
+      "title": "Automated Lead Follow-Up System", 
+      "problem": "Manual lead follow-up was slow and impersonal.", 
+      "context": "The sales team was losing potential deals because they couldn't keep up with follow-ups, leading to a leaky pipeline and missed revenue opportunities.", 
+      "approach": "I designed and built a system using Make.com and the GPT-4 API to automatically generate personalized follow-up emails based on lead data in HubSpot. The system also tracks replies, updates the CRM, and schedules the next action.", 
+      "outcome": "Reduced manual email work by 90% and increased qualified lead response rate by 25% within the first month.", 
+      "toolkit": [
+        {"group": "AI & Automation", "tools": ["GPT-4 API", "Make.com", "Workflow Automation"]}, 
+        {"group": "Data & Execution", "tools": ["HubSpot API", "Prompt Engineering", "System Integration"]}
+      ] 
+    },
+    { 
+      "id": "agent-2", 
+      "slug": "automated-market-research", 
+      "category": "agentic-systems", 
+      "title": "Automated Market Research Agent", 
+      "problem": "Market research was a time-consuming manual process.", 
+      "context": "The marketing team was spending over 10 hours a week manually tracking competitor websites and news, causing them to react slowly to market shifts.", 
+      "approach": "I deployed a research agent using Puppeteer for web scraping and the Claude API for summarization. The agent runs on a schedule, scrapes target sites, and delivers a concise intelligence digest via email.", 
+      "outcome": "Saved the team 10+ hours per week and delivered consistently sharp, timely market insights.", 
+      "toolkit": [
+        {"group": "AI & Automation", "tools": ["Claude API", "Puppeteer", "Cron Jobs"]}, 
+        {"group": "Data & Execution", "tools": ["Web Scraping", "Data Synthesis", "Node.js"]}
+      ] 
+    },
+    { 
+      "id": "vibe-1", 
+      "slug": "prototype-house-of-capital", 
+      "category": "vibe-coding", 
+      "title": "Prototype of House of Capital Website", 
+      "description": "A prototype for a B2B crowdfunding platform where vetted startups meet sophisticated investors.", 
+      "images": [
+        {"src": "https://picsum.photos/seed/dashboard/1200/800", "alt": "Dashboard UI", "hint": "dashboard ui", "width": 1200, "height": 800}
+      ] 
+    }
+  ]
+}
