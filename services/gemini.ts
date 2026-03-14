@@ -19,7 +19,7 @@ export const improvePrompt = async (userPrompt: string): Promise<ImprovedPromptR
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-flash-lite-latest",
       contents: userPrompt,
       config: {
         systemInstruction: systemInstruction,

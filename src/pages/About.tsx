@@ -1,6 +1,6 @@
 
 import React from 'react';
-import content from '../content.json';
+import { contentData as content } from '../content';
 
 const About: React.FC = () => {
   const { aboutPage } = content;
@@ -16,6 +16,7 @@ const About: React.FC = () => {
               <img 
                 src={aboutPage.avatar.src} 
                 alt={aboutPage.avatar.alt} 
+                referrerPolicy="no-referrer"
                 className="relative w-full h-auto rounded-none object-cover border border-charcoal/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>

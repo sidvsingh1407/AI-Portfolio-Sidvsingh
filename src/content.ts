@@ -1,5 +1,7 @@
 
-{
+import { PortfolioData } from './types';
+
+export const contentData: PortfolioData = {
   "aboutPage": {
     "avatar": { 
       "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/SidVSingh%20Pro%20Pic.png", 
@@ -256,4 +258,4 @@
       ]
     }
   ]
-}
+};

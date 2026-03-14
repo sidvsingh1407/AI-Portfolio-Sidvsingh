@@ -14,6 +14,7 @@ export interface Project {
   approach?: string;
   outcome?: string;
   description?: string;
+  status?: string;
   toolkit?: ToolkitGroup[];
   images?: { src: string; alt: string; hint: string; width: number; height: number; }[];
 }
