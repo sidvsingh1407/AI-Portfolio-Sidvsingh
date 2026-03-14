@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PromptImprover from '../components/PromptImprover';
+import FloatingParticles from '../components/FloatingParticles';
 import { contentData as content } from '../content';
 
 const Home: React.FC = () => {
@@ -12,8 +13,9 @@ const Home: React.FC = () => {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden bg-teal text-off-white">
+        <FloatingParticles />
         <div className="absolute inset-0 cinematic-gradient pointer-events-none" />
-        <div className="z-10 max-w-5xl">
+        <div className="relative z-10 max-w-5xl">
           <span className="text-gold font-bold uppercase tracking-[0.4em] text-xs mb-8 block animate-in fade-in slide-in-from-bottom-2 duration-1000">
             Siddharth Vikram Singh
           </span>

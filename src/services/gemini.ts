@@ -89,7 +89,7 @@ export const improvePrompt = async (prompt: string): Promise<ImprovedPromptResul
 
   const response = await fetchWithRetry(() => 
     ai.models.generateContent({
-      model: "gemini-2.5-flash-lite-latest",
+      model: "gemini-3-flash-preview",
       contents: sanitized,
       config: {
         systemInstruction,
