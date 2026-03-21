@@ -52,33 +52,26 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {featuredProjects.map((project, idx) => (
-              <div key={project.id} className="group cursor-pointer">
-                <div className="aspect-[16/10] overflow-hidden rounded-none mb-10 relative bg-teal">
-                  <div className="absolute inset-0 bg-red/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                  <img 
-                    src={project.images?.[0]?.src || `https://picsum.photos/seed/${project.slug}/1200/800`} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
+              <Link key={project.id} to={`/agentic-systems#${project.id}`} className="group cursor-pointer block p-12 bg-off-white/5 border border-off-white/10 hover:border-gold/30 transition-all duration-500 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </div>
                 <h3 className="text-3xl font-bold mb-8 text-off-white group-hover:text-gold transition-colors">{project.title}</h3>
                 <div className="space-y-6 border-l border-gold/20 pl-8">
                   <div className="space-y-2">
                     <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold/60">Problem</span>
-                    <p className="text-off-white/70 text-sm leading-relaxed">{project.problem}</p>
+                    <p className="text-off-white/70 text-sm leading-relaxed line-clamp-3">{project.problem}</p>
                   </div>
                   <div className="space-y-2">
                     <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold/60">Solution</span>
-                    <p className="text-off-white/70 text-sm leading-relaxed">{project.approach}</p>
+                    <p className="text-off-white/70 text-sm leading-relaxed line-clamp-3">{project.approach}</p>
                   </div>
                   <div className="space-y-2">
                     <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold/60">Result</span>
                     <p className="text-gold text-sm font-bold tracking-wide">{project.outcome}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -97,10 +90,21 @@ const Home: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-32 px-4 bg-white">
+      <section id="contact" className="py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-5xl font-bold mb-8 tracking-tighter text-charcoal">Let's build something <span className="text-red italic font-serif">intelligent</span>.</h2>
-          <p className="text-charcoal/60 mb-16 leading-relaxed">Whether you need a custom automation or are exploring AI possibilities, I'm here to translate your vision into code.</p>
+          <p className="text-charcoal/60 mb-8 leading-relaxed">Whether you need a custom automation or are exploring AI possibilities, I'm here to translate your vision into code.</p>
+          
+          <div className="flex flex-col md:flex-row justify-center gap-8 mb-16 text-sm font-bold uppercase tracking-widest">
+            <a href="mailto:vikramsiddharth14@gmail.com" className="text-charcoal hover:text-red transition-colors flex items-center justify-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              vikramsiddharth14@gmail.com
+            </a>
+            <a href="tel:+918881088963" className="text-charcoal hover:text-red transition-colors flex items-center justify-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              +91 88810 88963
+            </a>
+          </div>
           
           <form className="space-y-6 text-left">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

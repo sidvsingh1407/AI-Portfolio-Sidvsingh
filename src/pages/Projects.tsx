@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
             const displayImages = isExpanded ? project.images : project.images?.slice(0, 1);
 
             return (
-              <article key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start group">
+              <article id={project.id} key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start group">
                 <div className="lg:col-span-5 space-y-12">
                   <div className="space-y-4">
                     <span className="text-gold font-bold text-xs uppercase tracking-[0.4em] opacity-60">Project {idx + 1}</span>

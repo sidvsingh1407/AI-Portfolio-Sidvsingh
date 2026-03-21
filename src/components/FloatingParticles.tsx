@@ -43,15 +43,15 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.size = Math.random() * 2 + 1.5; // 1.5px to 3.5px
+        this.size = Math.random() * 2.5 + 2; // 2px to 4.5px (Larger)
         
         // Drift slowly upward and sideways
         this.vx = (Math.random() - 0.5) * speed;
-        this.vy = (Math.random() * -0.5 - 0.2) * speed; // Biased upward
+        this.vy = (Math.random() * -0.6 - 0.3) * speed; // Biased upward
         
         this.alpha = 0;
-        this.targetAlpha = (Math.random() * 0.5 + 0.3) * opacity;
-        this.fadeSpeed = 0.002 + Math.random() * 0.003;
+        this.targetAlpha = (Math.random() * 0.6 + 0.4) * opacity; // Higher opacity
+        this.fadeSpeed = 0.003 + Math.random() * 0.004;
         this.isFadingOut = false;
       }
 
@@ -184,7 +184,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none"
-      style={{ zIndex: 1 }} // Placed above background but below content
+      style={{ zIndex: 5, background: 'transparent' }} // Increased z-index and explicit transparent background
     />
   );
 };
