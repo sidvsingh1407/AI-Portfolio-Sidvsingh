@@ -16,8 +16,8 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
   const mousePosition = useRef({ x: -1000, y: -1000 });
   const animationFrameId = useRef<number | null>(null);
 
-  // Cap particle count at 100 for performance
-  const actualCount = Math.min(particleCount, 100);
+  // Cap particle count at 200 for performance
+  const actualCount = Math.min(particleCount, 200);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -43,15 +43,15 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.size = Math.random() * 2 + 1; // 1px to 3px
+        this.size = Math.random() * 2 + 1.5; // 1.5px to 3.5px
         
         // Drift slowly upward and sideways
         this.vx = (Math.random() - 0.5) * speed;
-        this.vy = (Math.random() * -0.5 - 0.1) * speed; // Biased upward
+        this.vy = (Math.random() * -0.5 - 0.2) * speed; // Biased upward
         
         this.alpha = 0;
-        this.targetAlpha = (Math.random() * 0.4 + 0.2) * opacity;
-        this.fadeSpeed = 0.005 + Math.random() * 0.005;
+        this.targetAlpha = (Math.random() * 0.5 + 0.3) * opacity;
+        this.fadeSpeed = 0.002 + Math.random() * 0.003;
         this.isFadingOut = false;
       }
 
@@ -60,19 +60,19 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
         const dx = mousePosition.current.x - this.x;
         const dy = mousePosition.current.y - this.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        const maxDist = 150;
+        const maxDist = 200;
 
         if (dist < maxDist) {
           const force = (maxDist - dist) / maxDist;
-          this.x -= (dx / dist) * force * 0.5;
-          this.y -= (dy / dist) * force * 0.5;
+          this.x -= (dx / dist) * force * 0.8;
+          this.y -= (dy / dist) * force * 0.8;
         }
 
         this.x += this.vx;
         this.y += this.vy;
 
         // Fade out near edges or if moving out of bounds
-        const padding = 20;
+        const padding = -20; // Allow some overflow before fading
         if (
           this.x < padding || 
           this.x > width - padding || 
@@ -97,21 +97,21 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
         const edge = Math.floor(Math.random() * 4);
         if (edge === 0) { // Bottom
           this.x = Math.random() * width;
-          this.y = height;
+          this.y = height + 10;
         } else if (edge === 1) { // Left
-          this.x = 0;
+          this.x = -10;
           this.y = Math.random() * height;
         } else if (edge === 2) { // Right
-          this.x = width;
+          this.x = width + 10;
           this.y = Math.random() * height;
         } else { // Top
           this.x = Math.random() * width;
-          this.y = 0;
+          this.y = -10;
         }
         
         this.alpha = 0;
         this.isFadingOut = false;
-        this.targetAlpha = (Math.random() * 0.4 + 0.2) * opacity;
+        this.targetAlpha = (Math.random() * 0.5 + 0.3) * opacity;
       }
 
       draw() {
@@ -129,10 +129,17 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
       const parent = canvas.parentElement;
       if (!parent) return;
       
-      width = parent.clientWidth || window.innerWidth;
-      height = parent.clientHeight || window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
+      const rect = parent.getBoundingClientRect();
+      width = rect.width || window.innerWidth;
+      height = rect.height || window.innerHeight;
+      
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      
+      ctx.scale(dpr, dpr);
       
       particles = Array.from({ length: actualCount }).map(() => new Particle());
     };
@@ -177,7 +184,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none"
-      style={{ zIndex: 1 }} // Changed from -1 to 1 to stay above parent background
+      style={{ zIndex: 1 }} // Placed above background but below content
     />
   );
 };
