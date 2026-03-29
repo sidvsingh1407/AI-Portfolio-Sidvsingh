@@ -20,7 +20,11 @@ const PromptImprover: React.FC = () => {
       const data = await improvePrompt(prompt);
       setResult(data);
     } catch (err: any) {
-      setError(err.message || 'Failed to improve prompt. Please try again.');
+      if (err.message === 'API_KEY_MISSING') {
+        setError('API Key not found. Please ensure VITE_GEMINI_API_KEY is set in your environment variables.');
+      } else {
+        setError(err.message || 'Failed to improve prompt. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

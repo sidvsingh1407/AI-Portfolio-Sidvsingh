@@ -12,6 +12,14 @@ import { logger } from "../utils/logger";
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
+if (import.meta.env.DEV) {
+  if (API_KEY) {
+    logger.info("Gemini API Key detected successfully.");
+  } else {
+    logger.warn("Gemini API Key (VITE_GEMINI_API_KEY) is missing in the browser environment.");
+  }
+}
+
 export interface GeminiCandidate {
   content: {
     parts: { text: string }[];
