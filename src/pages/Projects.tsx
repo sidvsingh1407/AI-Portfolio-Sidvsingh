@@ -132,141 +132,169 @@ const Projects: React.FC = () => {
           <div className="w-24 h-1 bg-gold animate-in fade-in zoom-in duration-1000 delay-400" />
         </header>
 
-        <div className="space-y-48">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
           {filteredProjects.map((project, idx) => {
             const isExpanded = expandedProjectId === project.id;
-            const hasMultipleImages = (project.images?.length || 0) > 1;
-            const displayImages = isExpanded ? project.images : project.images?.slice(0, 1);
 
             return (
-              <article id={project.id} key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start group">
-                <div className="lg:col-span-5 space-y-12">
-                  <div className="space-y-4">
-                    <span className="text-gold font-bold text-xs uppercase tracking-[0.4em] opacity-60">Project {idx + 1}</span>
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500">
-                      {project.title}
-                      {project.status && (
-                        <span className="ml-4 inline-block px-3 py-1 bg-gold text-charcoal text-[10px] font-bold uppercase tracking-widest align-middle">
-                          {project.status}
-                        </span>
-                      )}
-                    </h2>
-                  </div>
-
-                  <div className="space-y-10 border-l border-gold/20 pl-10">
-                    {project.problem && (
-                      <div className="space-y-3">
-                        <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">The Problem</h3>
-                        <p className="text-off-white/70 text-sm leading-relaxed">{project.problem}</p>
-                      </div>
-                    )}
-
-                    {project.approach && (
-                      <div className="space-y-3">
-                        <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">The Approach</h3>
-                        <p className="text-off-white/70 text-sm leading-relaxed">{project.approach}</p>
-                      </div>
-                    )}
-
-                    {project.context && (
-                      <div className="space-y-3">
-                        <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">Execution Detail</h3>
-                        <p className="text-off-white/70 text-sm leading-relaxed">{project.context}</p>
-                      </div>
-                    )}
-
-                    {project.outcome && (
-                      <div className="p-8 bg-teal/20 border border-gold/10 relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-1 h-full bg-red" />
-                        <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-red mb-4">The Outcome</h3>
-                        <p className="text-off-white text-sm leading-relaxed font-bold tracking-wide">{project.outcome}</p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 pt-10 border-t border-off-white/5">
-                    {project.toolkit?.map((group, gIdx) => (
-                      <div key={gIdx} className="space-y-4">
-                        <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/40">{group.group}</h4>
-                        <ul className="flex flex-wrap gap-3">
-                          {group.tools.map((tool, tIdx) => (
-                            <li key={tIdx} className="px-3 py-1.5 bg-off-white/5 border border-off-white/10 text-[10px] font-bold text-off-white/60 uppercase tracking-widest">
-                              {tool}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-
-                  {hasMultipleImages && (
-                    <div className="space-y-6">
-                      <button 
-                        onClick={() => toggleExpand(project.id)}
-                        className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.4em] text-gold hover:text-off-white transition-colors group/btn"
-                      >
-                        {isExpanded ? (
-                          <>Collapse Gallery <ChevronUp className="w-4 h-4 group-hover/btn:-translate-y-1 transition-transform" /></>
-                        ) : (
-                          <>View Full Gallery ({project.images?.length}) <ChevronDown className="w-4 h-4 group-hover/btn:translate-y-1 transition-transform" /></>
-                        )}
-                      </button>
-
-                      {isExpanded && filteredProjects.length > 1 && (
-                        <div className="flex items-center gap-8 pt-6 border-t border-off-white/5 animate-in fade-in slide-in-from-left-4 duration-500">
-                          <button 
-                            onClick={() => navigateProject('prev')}
-                            className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.4em] text-gold/40 hover:text-gold transition-colors group/nav"
-                          >
-                            <ChevronLeft className="w-3 h-3 group-hover/nav:-translate-x-1 transition-transform" /> Previous Project
-                          </button>
-                          <button 
-                            onClick={() => navigateProject('next')}
-                            className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.4em] text-gold/40 hover:text-gold transition-colors group/nav"
-                          >
-                            Next Project <ChevronRight className="w-3 h-3 group-hover/nav:translate-x-1 transition-transform" />
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-
+              <article 
+                id={project.id} 
+                key={project.id} 
+                className={`group bg-off-white/5 border border-off-white/10 p-8 transition-all duration-500 flex flex-col h-fit hover:border-gold/30 hover:bg-off-white/[0.07] hover:-translate-y-1 shadow-xl ${isExpanded ? 'md:col-span-2 border-gold/20 bg-off-white/[0.08] -translate-y-0' : ''}`}
+              >
+                {/* Image Preview */}
                 <div 
-                  className={`lg:col-span-7 ${isExpanded ? 'grid grid-cols-1 sm:grid-cols-2 gap-6' : 'space-y-10'} ${project.images && project.images.length > 0 ? 'cursor-pointer' : ''}`}
-                  onClick={() => {
-                    if (project.images && project.images.length > 0) {
-                      setLightbox({ projectId: project.id, index: 0 });
-                    }
-                  }}
+                  className="aspect-video overflow-hidden bg-charcoal/40 mb-8 cursor-pointer relative border border-off-white/5"
+                  onClick={() => project.images && project.images.length > 0 && setLightbox({ projectId: project.id, index: 0 })}
                 >
-                  {displayImages?.map((img, iIdx) => (
-                    <div 
-                      key={iIdx} 
-                      className="relative group/img overflow-hidden"
-                      onClick={(e) => {
-                        if (isExpanded) {
-                          e.stopPropagation();
-                          setLightbox({ projectId: project.id, index: iIdx });
-                        }
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-red/10 opacity-0 group-hover/img:opacity-100 transition-opacity duration-700 z-10" />
-                      <img 
-                        src={img.src} 
-                        alt={img.alt} 
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        className="w-full h-auto grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100"
-                      />
-                    </div>
-                  ))}
-                  {!project.images && (
-                    <div className="w-full aspect-[16/10] bg-teal/10 border border-dashed border-off-white/10 flex items-center justify-center text-off-white/30 italic uppercase tracking-widest text-xs">
-                      Visual representation coming soon
+                  <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                  {project.images?.[0] ? (
+                    <img 
+                      src={project.images[0].src} 
+                      alt={project.images[0].alt} 
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center text-off-white/20 space-y-2">
+                      <div className="w-12 h-px bg-off-white/10" />
+                      <span className="italic text-[10px] tracking-[0.2em] uppercase">Visual coming soon</span>
+                      <div className="w-12 h-px bg-off-white/10" />
                     </div>
                   )}
                 </div>
+
+                {/* Header */}
+                <div className="space-y-4 mb-6">
+                  <div className="flex justify-between items-start">
+                    <span className="text-gold font-bold text-[10px] uppercase tracking-[0.4em] opacity-60">Project {idx + 1}</span>
+                    {project.status && (
+                      <span className="px-2 py-0.5 bg-gold text-charcoal text-[8px] font-bold uppercase tracking-widest">
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500">
+                    {project.title}
+                  </h2>
+                </div>
+
+                {/* Problem Statement */}
+                <div className="space-y-2 mb-8">
+                  <h3 className="text-[9px] font-bold uppercase tracking-[0.3em] text-gold/40">The Problem</h3>
+                  <p className={`text-off-white/70 text-sm leading-relaxed ${isExpanded ? '' : 'line-clamp-3'}`}>
+                    {project.problem}
+                  </p>
+                </div>
+
+                {/* View Details Link */}
+                <button 
+                  onClick={() => toggleExpand(project.id)}
+                  className="mt-auto flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.4em] text-gold hover:text-off-white transition-all group/btn py-2"
+                >
+                  <span className="relative overflow-hidden inline-block">
+                    <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">
+                      {isExpanded ? 'Show Less' : 'View Details'}
+                    </span>
+                    <span className="absolute top-0 left-0 inline-block translate-y-full transition-transform duration-300 group-hover/btn:translate-y-0 text-off-white">
+                      {isExpanded ? 'Show Less' : 'View Details'}
+                    </span>
+                  </span>
+                  {isExpanded ? (
+                    <ChevronUp className="w-3 h-3 group-hover/btn:-translate-y-1 transition-transform" />
+                  ) : (
+                    <ChevronRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+                  )}
+                </button>
+
+                {/* Expanded Content */}
+                {isExpanded && (
+                  <div className="mt-12 pt-12 border-t border-off-white/10 space-y-12 animate-in fade-in slide-in-from-top-4 duration-500">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                      <div className="space-y-10">
+                        {project.approach && (
+                          <div className="space-y-3">
+                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">The Approach</h3>
+                            <p className="text-off-white/70 text-sm leading-relaxed">{project.approach}</p>
+                          </div>
+                        )}
+                        {project.context && (
+                          <div className="space-y-3">
+                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">Execution Detail</h3>
+                            <p className="text-off-white/70 text-sm leading-relaxed">{project.context}</p>
+                          </div>
+                        )}
+                      </div>
+                      <div className="space-y-10">
+                        {project.outcome && (
+                          <div className="p-6 bg-teal/20 border border-gold/10 relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-1 h-full bg-red" />
+                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-red mb-3">The Outcome</h3>
+                            <p className="text-off-white text-sm leading-relaxed font-bold tracking-wide">{project.outcome}</p>
+                          </div>
+                        )}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                          {project.toolkit?.map((group, gIdx) => (
+                            <div key={gIdx} className="space-y-3">
+                              <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/40">{group.group}</h4>
+                              <ul className="flex flex-wrap gap-2">
+                                {group.tools.map((tool, tIdx) => (
+                                  <li key={tIdx} className="px-2 py-1 bg-off-white/5 border border-off-white/10 text-[9px] font-bold text-off-white/60 uppercase tracking-widest">
+                                    {tool}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Full Gallery */}
+                    {project.images && project.images.length > 1 && (
+                      <div className="space-y-6">
+                        <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">Project Gallery</h3>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                          {project.images.map((img, iIdx) => (
+                            <div 
+                              key={iIdx} 
+                              className="aspect-square overflow-hidden cursor-pointer relative group/thumb"
+                              onClick={() => setLightbox({ projectId: project.id, index: iIdx })}
+                            >
+                              <div className="absolute inset-0 bg-gold/20 opacity-0 group-hover/thumb:opacity-100 transition-opacity z-10" />
+                              <img 
+                                src={img.src} 
+                                alt={img.alt} 
+                                loading="lazy"
+                                referrerPolicy="no-referrer"
+                                className="w-full h-full object-cover grayscale group-hover/thumb:grayscale-0 transition-all duration-500"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Project Navigation */}
+                    {filteredProjects.length > 1 && (
+                      <div className="flex items-center gap-8 pt-8 border-t border-off-white/5">
+                        <button 
+                          onClick={() => navigateProject('prev')}
+                          className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.4em] text-gold/40 hover:text-gold transition-colors group/nav"
+                        >
+                          <ChevronLeft className="w-3 h-3 group-hover/nav:-translate-x-1 transition-transform" /> Previous
+                        </button>
+                        <button 
+                          onClick={() => navigateProject('next')}
+                          className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.4em] text-gold/40 hover:text-gold transition-colors group/nav"
+                        >
+                          Next <ChevronRight className="w-3 h-3 group-hover/nav:translate-x-1 transition-transform" />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
               </article>
             );
           })}

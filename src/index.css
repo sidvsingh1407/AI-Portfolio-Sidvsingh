@@ -39,12 +39,18 @@
   background: white;
   border-radius: 50%;
   opacity: 0.3;
-  animation: twinkle var(--duration) infinite ease-in-out;
+  animation: twinkle-drift var(--duration) infinite ease-in-out;
 }
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.2); }
+@keyframes twinkle-drift {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: translate(0, 0) scale(1); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: translate(var(--drift-x), var(--drift-y)) scale(1.2); 
+  }
 }
 
 .noise {

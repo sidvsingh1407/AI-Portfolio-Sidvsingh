@@ -8,7 +8,7 @@ interface FloatingParticlesProps {
 }
 
 const FloatingParticles: React.FC<FloatingParticlesProps> = ({
-  particleCount = 150,
+  particleCount = 300,
   speed = 0.5,
   opacity = 0.6,
 }) => {
@@ -16,8 +16,8 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
   const mousePosition = useRef({ x: -1000, y: -1000 });
   const animationFrameId = useRef<number | null>(null);
 
-  // Cap particle count at 200 for performance
-  const actualCount = Math.min(particleCount, 200);
+  // Cap particle count at 500 for performance
+  const actualCount = Math.min(particleCount, 500);
 
   useEffect(() => {
     const canvas = canvasRef.current;
