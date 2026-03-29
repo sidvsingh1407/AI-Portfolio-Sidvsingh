@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-charcoal text-off-white py-24 px-6 border-t border-off-white/5">
+    <footer id="footer" className="bg-charcoal text-off-white py-24 px-6 border-t border-off-white/5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
         <div className="md:col-span-2 space-y-8">
           <Link to="/" className="text-3xl font-bold tracking-tighter text-off-white">
@@ -33,7 +33,6 @@ const Footer: React.FC = () => {
           <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold">Contact</h4>
           <p className="text-sm text-off-white/60">Lucknow, India</p>
           <a href="mailto:vikramsiddharth14@gmail.com" className="block text-sm text-off-white/60 hover:text-off-white transition-colors">vikramsiddharth14@gmail.com</a>
-          <a href="tel:+918881088963" className="block text-sm text-off-white/60 hover:text-off-white transition-colors">+91 88810 88963</a>
         </div>
       </div>
       

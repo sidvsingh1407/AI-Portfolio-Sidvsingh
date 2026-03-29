@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           <Link to="/vibe-coding" className={`text-xs font-bold uppercase tracking-widest transition-colors ${isActive('/vibe-coding') ? 'text-gold' : (!isScrolled && isAboutPage ? 'text-charcoal/70 hover:text-gold' : 'text-off-white/70 hover:text-gold')}`}>Vibes</Link>
           <a href="https://docs.google.com/spreadsheets/d/174wU7GSwfhoq58QaHDURwO8QXLnnclStokCs9o5dywQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className={`text-xs font-bold uppercase tracking-widest transition-colors ${!isScrolled && isAboutPage ? 'text-charcoal/70 hover:text-gold' : 'text-off-white/70 hover:text-gold'}`}>TOOLKIT</a>
           <Link to="/about" className={`text-xs font-bold uppercase tracking-widest transition-colors ${isActive('/about') ? 'text-gold' : (!isScrolled && isAboutPage ? 'text-charcoal/70 hover:text-gold' : 'text-off-white/70 hover:text-gold')}`}>About</Link>
-          <a href="/#contact" className="px-6 py-2 bg-red text-off-white text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all">Contact</a>
+          <Link to="/#footer" className="px-6 py-2 bg-red text-off-white text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all">Contact</Link>
         </nav>
       </div>
     </header>

@@ -1,6 +1,8 @@
 
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Starfield from './components/Starfield';
@@ -9,10 +11,18 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
   return null;
 };
 
@@ -32,6 +42,8 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
+        <SpeedInsights />
+        <Analytics />
       </div>
     </Router>
   );

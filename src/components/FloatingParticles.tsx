@@ -8,9 +8,9 @@ interface FloatingParticlesProps {
 }
 
 const FloatingParticles: React.FC<FloatingParticlesProps> = ({
-  particleCount = 80,
-  speed = 0.4,
-  opacity = 0.4,
+  particleCount = 150,
+  speed = 0.5,
+  opacity = 0.6,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mousePosition = useRef({ x: -1000, y: -1000 });
@@ -43,15 +43,15 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.size = Math.random() * 2.5 + 2; // 2px to 4.5px (Larger)
+        this.size = Math.random() * 3 + 2.5; // 2.5px to 5.5px (Larger)
         
         // Drift slowly upward and sideways
         this.vx = (Math.random() - 0.5) * speed;
-        this.vy = (Math.random() * -0.6 - 0.3) * speed; // Biased upward
+        this.vy = (Math.random() * -0.8 - 0.4) * speed; // Biased upward
         
         this.alpha = 0;
-        this.targetAlpha = (Math.random() * 0.6 + 0.4) * opacity; // Higher opacity
-        this.fadeSpeed = 0.003 + Math.random() * 0.004;
+        this.targetAlpha = (Math.random() * 0.7 + 0.3) * opacity; // Higher opacity
+        this.fadeSpeed = 0.005 + Math.random() * 0.005;
         this.isFadingOut = false;
       }
 
@@ -119,7 +119,10 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
         ctx.fill();
+        ctx.shadowBlur = 0; // Reset for performance
       }
     }
 
