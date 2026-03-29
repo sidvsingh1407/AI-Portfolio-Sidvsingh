@@ -60,12 +60,12 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
         const dx = mousePosition.current.x - this.x;
         const dy = mousePosition.current.y - this.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        const maxDist = 200;
+        const maxDist = 150; // Reduced range from 200
 
         if (dist < maxDist) {
           const force = (maxDist - dist) / maxDist;
-          this.x -= (dx / dist) * force * 0.8;
-          this.y -= (dy / dist) * force * 0.8;
+          this.x -= (dx / dist) * force * 0.3; // Reduced force from 0.8
+          this.y -= (dy / dist) * force * 0.3; // Reduced force from 0.8
         }
 
         this.x += this.vx;
