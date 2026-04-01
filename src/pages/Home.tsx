@@ -1,13 +1,111 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 import PromptImprover from '../components/PromptImprover';
 import FloatingParticles from '../components/FloatingParticles';
 import { contentData as content } from '../content';
 
+enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId: string | undefined;
+    email: string | null | undefined;
+    emailVerified: boolean | undefined;
+    isAnonymous: boolean | undefined;
+    tenantId: string | null | undefined;
+    providerInfo: {
+      providerId: string;
+      displayName: string | null;
+      email: string | null;
+      photoUrl: string | null;
+    }[];
+  }
+}
+
 const Home: React.FC = () => {
   const { projects } = content;
   const featuredProjects = projects.filter(p => p.category === 'agentic-systems');
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { placeholder, value } = e.target;
+    const field = placeholder.toLowerCase() as keyof typeof formData;
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleFirestoreError = (error: unknown, operationType: OperationType, path: string | null) => {
+    // We don't have access to auth here easily without importing it, but we can get it from the db app
+    const auth = (db as any).app.auth?.(); // This is a bit hacky, let's just import it if needed
+    // Actually, let's just use a simpler version or import auth
+    const errInfo: FirestoreErrorInfo = {
+      error: error instanceof Error ? error.message : String(error),
+      authInfo: {
+        userId: undefined, // Simplified for now
+        email: undefined,
+        emailVerified: undefined,
+        isAnonymous: undefined,
+        tenantId: undefined,
+        providerInfo: []
+      },
+      operationType,
+      path
+    };
+    console.error('Firestore Error: ', JSON.stringify(errInfo));
+    throw new Error(JSON.stringify(errInfo));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const path = 'messages';
+      await addDoc(collection(db, path), {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        createdAt: serverTimestamp()
+      });
+      
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err: any) {
+      console.error("Submission error:", err);
+      setError('Something went wrong. Please try again.');
+      // If it's a permission error, it will be logged by the rules engine if we use the helper
+      // but here we are catching it.
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="flex flex-col">
@@ -102,16 +200,78 @@ const Home: React.FC = () => {
             </a>
           </div>
           
-          <form className="space-y-6 text-left">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input type="text" placeholder="Name" className="w-full bg-off-white border border-charcoal/10 rounded-none p-5 text-charcoal focus:border-red outline-none transition-all text-sm" />
-              <input type="email" placeholder="Email" className="w-full bg-off-white border border-charcoal/10 rounded-none p-5 text-charcoal focus:border-red outline-none transition-all text-sm" />
-            </div>
-            <textarea placeholder="Message" className="w-full h-40 bg-off-white border border-charcoal/10 rounded-none p-5 text-charcoal focus:border-red outline-none resize-none transition-all text-sm"></textarea>
-            <button type="button" className="w-full py-5 bg-red text-off-white font-bold uppercase tracking-[0.3em] text-xs rounded-none hover:scale-105 transition-all shadow-2xl glitch-hover">
-              Send Message
-            </button>
-          </form>
+          <div className="relative min-h-[400px]">
+            <AnimatePresence mode="wait">
+              {!isSubmitted ? (
+                <motion.form 
+                  key="contact-form"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  onSubmit={handleSubmit} 
+                  className="space-y-6 text-left"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input 
+                      type="text" 
+                      placeholder="Name" 
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full bg-off-white border border-charcoal/10 rounded-none p-5 text-charcoal focus:border-red outline-none transition-all text-sm" 
+                    />
+                    <input 
+                      type="email" 
+                      placeholder="Email" 
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full bg-off-white border border-charcoal/10 rounded-none p-5 text-charcoal focus:border-red outline-none transition-all text-sm" 
+                    />
+                  </div>
+                  <textarea 
+                    placeholder="Message" 
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className="w-full h-40 bg-off-white border border-charcoal/10 rounded-none p-5 text-charcoal focus:border-red outline-none resize-none transition-all text-sm"
+                  ></textarea>
+                  
+                  {error && (
+                    <p className="text-red text-xs font-bold uppercase tracking-widest">{error}</p>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className={`w-full py-5 font-bold uppercase tracking-[0.3em] text-xs rounded-none transition-all shadow-2xl glitch-hover ${
+                      isSubmitting ? 'bg-charcoal/20 text-charcoal/40 cursor-not-allowed' : 'bg-red text-off-white hover:scale-[1.02]'
+                    }`}
+                  >
+                    {isSubmitting ? 'Architecting Message...' : 'Send Message'}
+                  </button>
+                </motion.form>
+              ) : (
+                <motion.div 
+                  key="success-message"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-teal/5 border border-teal/20 p-16 text-center space-y-6"
+                >
+                  <div className="w-20 h-20 bg-teal text-off-white rounded-full flex items-center justify-center mx-auto mb-8">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <h3 className="text-3xl font-bold text-charcoal tracking-tighter">Transmission Successful.</h3>
+                  <p className="text-charcoal/60 text-sm max-w-md mx-auto leading-relaxed">
+                    Your message has been received. I'll review the logic and get back to you within 24 hours.
+                  </p>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-red font-bold uppercase tracking-widest text-[10px] hover:underline pt-4"
+                  >
+                    Send another message
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </section>
     </div>

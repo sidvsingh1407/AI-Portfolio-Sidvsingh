@@ -22,6 +22,12 @@ const PromptImprover: React.FC = () => {
     } catch (err: any) {
       if (err.message === 'API_KEY_MISSING') {
         setError('API Key not found. Please ensure VITE_GEMINI_API_KEY is set in your environment variables.');
+      } else if (err.message === 'INVALID_API_KEY') {
+        setError('The provided Gemini API Key is invalid. Please check your key and try again.');
+      } else if (err.message === 'PERMISSION_DENIED') {
+        setError('Access denied. Your API key might not have permission to use this model or service.');
+      } else if (err.message === 'RATE_LIMIT_EXCEEDED') {
+        setError('Rate limit exceeded. Please wait a moment before trying again.');
       } else {
         setError(err.message || 'Failed to improve prompt. Please try again.');
       }

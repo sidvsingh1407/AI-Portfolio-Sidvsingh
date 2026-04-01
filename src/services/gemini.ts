@@ -95,36 +95,48 @@ export const improvePrompt = async (prompt: string): Promise<ImprovedPromptResul
     Return strictly valid JSON.
   `;
 
-  const response = await fetchWithRetry(() => 
-    ai.models.generateContent({
-      model: "gemini-3-flash-preview",
-      contents: sanitized,
-      config: {
-        systemInstruction,
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            improvedPrompt: { type: Type.STRING },
-            explanation: { type: Type.STRING },
-            alternatives: { 
-              type: Type.ARRAY,
-              items: { type: Type.STRING }
-            },
-          },
-          required: ["improvedPrompt", "explanation", "alternatives"],
-        },
-      },
-    })
-  );
-
-  const text = response.text;
-  if (!text) throw new Error("EMPTY_RESPONSE");
-
   try {
+    const response = await fetchWithRetry(() => 
+      ai.models.generateContent({
+        model: "gemini-3-flash-preview",
+        contents: sanitized,
+        config: {
+          systemInstruction,
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: Type.OBJECT,
+            properties: {
+              improvedPrompt: { type: Type.STRING },
+              explanation: { type: Type.STRING },
+              alternatives: { 
+                type: Type.ARRAY,
+                items: { type: Type.STRING }
+              },
+            },
+            required: ["improvedPrompt", "explanation", "alternatives"],
+          },
+        },
+      })
+    );
+
+    const text = response.text;
+    if (!text) throw new Error("EMPTY_RESPONSE");
+
     return JSON.parse(text) as ImprovedPromptResult;
-  } catch (e) {
-    logger.error("Failed to parse Gemini JSON response", e);
-    throw new Error("PARSE_ERROR");
+  } catch (error: any) {
+    logger.error("Gemini API Error:", error);
+    
+    // Handle specific API errors
+    if (error?.message?.includes('API key not valid')) {
+      throw new Error("INVALID_API_KEY");
+    }
+    if (error?.status === 403) {
+      throw new Error("PERMISSION_DENIED");
+    }
+    if (error?.status === 429) {
+      throw new Error("RATE_LIMIT_EXCEEDED");
+    }
+    
+    throw error;
   }
 };
