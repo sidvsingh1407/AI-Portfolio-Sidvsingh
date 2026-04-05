@@ -4,7 +4,7 @@ import { PortfolioData } from './types';
 export const contentData: PortfolioData = {
   "aboutPage": {
     "avatar": { 
-      "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/SidVSingh%20Pro%20Pic.png", 
+      "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/SidVSingh-Pro-Pic.png", 
       "alt": "Siddharth Vikram Singh", 
       "hint": "profile photo", 
       "width": 600, 
@@ -140,7 +140,7 @@ export const contentData: PortfolioData = {
         { "group": "Built With", "tools": ["N8N", "Google Sheets", "Gmail", "Web Search Grounding"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/Signal%20&%20Send.png", "alt": "Signal & Send Interface", "hint": "Interface", "width": 1200, "height": 800 }
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/signal-send.png", "alt": "Signal & Send Interface", "hint": "Interface", "width": 1200, "height": 800 }
       ]
     },
     {
@@ -156,7 +156,7 @@ export const contentData: PortfolioData = {
         { "group": "Built With", "tools": ["Gemini", "Google Opal", "Web Search Grounding", "Google Docs", "Google Sheets"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/SEO%20Ana.png", "alt": "SEO Analyser Pro Dashboard", "hint": "Dashboard", "width": 1200, "height": 800 }
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/seo-analyser.png", "alt": "SEO Analyser Pro Dashboard", "hint": "Dashboard", "width": 1200, "height": 800 }
       ]
     },
     {
@@ -172,7 +172,7 @@ export const contentData: PortfolioData = {
         { "group": "Built With", "tools": ["N8N", "Google Slides", "Google Docs", "Google Sheets", "Web Search Grounding"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/Content%20Stra.png", "alt": "Content Strategy Architect Workflow", "hint": "Workflow", "width": 1200, "height": 800 }
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/content-strategy.png", "alt": "Content Strategy Architect Workflow", "hint": "Workflow", "width": 1200, "height": 800 }
       ]
     },
     {
@@ -188,7 +188,7 @@ export const contentData: PortfolioData = {
         { "group": "Built With", "tools": ["Gemini", "Google Opal", "Web Search Grounding", "Google Slides", "Google Docs", "Google Sheets"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/Digital%20Audit.png", "alt": "Digital Audit Command Centre Report", "hint": "Report", "width": 1200, "height": 800 }
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/digital-audit.png", "alt": "Digital Audit Command Centre Report", "hint": "Report", "width": 1200, "height": 800 }
       ]
     },
     {
@@ -202,11 +202,11 @@ export const contentData: PortfolioData = {
         { "group": "Vibe Coding", "tools": ["React", "Tailwind CSS", "Matchmaking Logic"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/HoC's%20Front%20Page.png", "alt": "House of Capital Front Page", "hint": "Front Page", "width": 1200, "height": 800 },
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/HoC's%20Sec%20Page.png", "alt": "House of Capital Second Page", "hint": "Second Page", "width": 1200, "height": 800 },
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/HoC's%20Third%20Page.png", "alt": "House of Capital Third Page", "hint": "Third Page", "width": 1200, "height": 800 },
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/HoC's%20Forth%20Page.png", "alt": "House of Capital Fourth Page", "hint": "Fourth Page", "width": 1200, "height": 800 },
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/HoC's%20Fifth%20Page.png", "alt": "House of Capital Fifth Page", "hint": "Fifth Page", "width": 1200, "height": 800 }
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-1.png", "alt": "House of Capital Front Page", "hint": "Front Page", "width": 1200, "height": 800 },
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-2.png", "alt": "House of Capital Second Page", "hint": "Second Page", "width": 1200, "height": 800 },
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-3.png", "alt": "House of Capital Third Page", "hint": "Third Page", "width": 1200, "height": 800 },
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-4.png", "alt": "House of Capital Fourth Page", "hint": "Fourth Page", "width": 1200, "height": 800 },
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-5.png", "alt": "House of Capital Fifth Page", "hint": "Fifth Page", "width": 1200, "height": 800 }
       ]
     },
     {
@@ -222,7 +222,7 @@ export const contentData: PortfolioData = {
         { "group": "Vibe Coding", "tools": ["Gemini 2.5 Flash", "Google Search Grounding", "React", "Tailwind CSS"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/Startup%20data%20extractor.png", "alt": "Startup Data Refiner Interface", "hint": "Interface", "width": 1200, "height": 800 }
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/startup-data-refiner.png", "alt": "Startup Data Refiner Interface", "hint": "Interface", "width": 1200, "height": 800 }
       ]
     },
     {
@@ -254,7 +254,7 @@ export const contentData: PortfolioData = {
         { "group": "Vibe Coding", "tools": ["Gemini", "Claude", "Google AI Studio"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/AI%20Portfolio%20@Sidvsingh/AI%20Job%20CoPilot.png", "alt": "AI Job Copilot Dashboard", "hint": "Dashboard", "width": 1200, "height": 800 }
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/ai-job-copilot.png", "alt": "AI Job Copilot Dashboard", "hint": "Dashboard", "width": 1200, "height": 800 }
       ]
     }
   ]
