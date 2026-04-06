@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
-import PromptImprover from '../components/PromptImprover';
 import FloatingParticles from '../components/FloatingParticles';
 import { contentData as content } from '../content';
 
@@ -175,17 +174,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Prompt Engineering Showcase */}
-      <section className="py-32 px-4 bg-teal/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-red mb-4">Interactive</h2>
-            <p className="text-4xl md:text-5xl font-bold text-charcoal max-w-2xl mx-auto">Prompt Engineering Showcase</p>
-            <p className="text-charcoal/60 mt-6 max-w-xl mx-auto text-sm">Interactive demonstration of how structured prompt engineering transforms generic AI output into precise business logic.</p>
-          </div>
-          <PromptImprover />
-        </div>
-      </section>
+      {/* Prompt Engineering Showcase Removed */}
 
       {/* Contact Section */}
       <section id="contact" className="py-32 px-4 bg-white">
