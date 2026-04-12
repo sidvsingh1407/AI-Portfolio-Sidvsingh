@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import posthog from 'posthog-js';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 import Header from './components/Header';
@@ -9,6 +10,16 @@ import Starfield from './components/Starfield';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+
+const PostHogPageView = () => {
+  const location = useLocation();
+  useEffect(() => {
+    posthog.capture('$pageview');
+  }, [location]);
+  return null;
+};
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -33,12 +44,15 @@ const App: React.FC = () => {
         <div className="noise" />
         <Header />
         <ScrollToTop />
+        <PostHogPageView />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/agentic-systems" element={<Projects />} />
             <Route path="/vibe-coding" element={<Projects />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </main>
         <Footer />

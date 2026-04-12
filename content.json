@@ -255,5 +255,29 @@
         { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/ai-job-copilot.png", "alt": "AI Job Copilot Dashboard", "hint": "Dashboard", "width": 1200, "height": 800 }
       ]
     }
+  ],
+  "blogs": [
+    {
+      "id": "blog-1",
+      "slug": "future-of-agentic-workflows",
+      "title": "The Future of Agentic Workflows",
+      "date": "April 8, 2026",
+      "excerpt": "Exploring how multi-agent systems are redefining business automation and strategic decision-making.",
+      "content": "Agentic workflows represent a paradigm shift in how we interact with AI. Instead of single-turn prompts, we are moving towards autonomous systems that can research, reason, and execute complex tasks with minimal human intervention...\n\n### Why Agents Matter\nAgents don't just provide answers; they perform actions. By connecting LLMs to external tools and APIs, we can create pipelines that handle everything from outbound sales to market research.\n\n### The Strategic Advantage\nFor businesses, the advantage is clear: scalability. An agentic system can work 24/7, processing data and generating insights at a speed no human team can match.",
+      "category": "AI Strategy",
+      "readTime": "5 min read",
+      "image": "https://picsum.photos/seed/agents/1200/600"
+    },
+    {
+      "id": "blog-2",
+      "slug": "vibe-coding-explained",
+      "title": "Vibe Coding: Intuition Meets Logic",
+      "date": "April 5, 2026",
+      "excerpt": "A deep dive into the experimental world of Vibe Coding and why human intuition is still the ultimate debugging tool.",
+      "content": "Vibe coding is more than just a buzzword. It's a philosophy of development where the 'vibe'—the intuitive sense of how a system should feel—guides the technical implementation...\n\n### The Human Element\nWhile AI can generate code, it often lacks the context of user experience and brand identity. This is where the human developer steps in, refining the AI's output to match a specific vision.\n\n### Rapid Prototyping\nUsing tools like Google AI Studio, we can now prototype complex ideas in hours rather than weeks. This allows for a more iterative, 'vibe-based' approach to product development.",
+      "category": "Experimental Tech",
+      "readTime": "4 min read",
+      "image": "https://picsum.photos/seed/vibecoding/1200/600"
+    }
   ]
 }

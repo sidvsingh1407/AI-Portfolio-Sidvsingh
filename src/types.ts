@@ -47,8 +47,21 @@ export interface AgentStackItem {
   icon: string;
 }
 
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  content: string;
+  category: string;
+  image?: string;
+  readTime: string;
+}
+
 export interface PortfolioData {
   aboutPage: AboutPageData;
   agentStack: AgentStackItem[];
   projects: Project[];
+  blogs: BlogPost[];
 }
