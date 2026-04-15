@@ -18,7 +18,6 @@
     "firebase": "^12.11.0",
     "lucide-react": "^0.575.0",
     "motion": "^12.34.3",
-    "posthog-js": "^1.367.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-markdown": "^10.1.0",

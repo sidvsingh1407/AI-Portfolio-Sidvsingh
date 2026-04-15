@@ -1,7 +1,6 @@
 
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import posthog from 'posthog-js';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 import Header from './components/Header';
@@ -13,10 +12,21 @@ import Projects from './pages/Projects';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 
-const PostHogPageView = () => {
+// Declare gtag for TypeScript
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
+const GAPageView = () => {
   const location = useLocation();
   useEffect(() => {
-    posthog.capture('$pageview');
+    if (window.gtag) {
+      window.gtag('config', 'G-GXPX5FJ5EG', {
+        page_path: location.pathname + location.search + location.hash,
+      });
+    }
   }, [location]);
   return null;
 };
@@ -44,7 +54,7 @@ const App: React.FC = () => {
         <div className="noise" />
         <Header />
         <ScrollToTop />
-        <PostHogPageView />
+        <GAPageView />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
