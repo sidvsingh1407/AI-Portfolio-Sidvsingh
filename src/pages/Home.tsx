@@ -128,9 +128,9 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tighter mb-10 md:mb-16 leading-[0.85] text-off-white"
+            className="text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tight mb-10 md:mb-16 leading-[0.9] text-off-white"
           >
-            The <span className="shimmer-text italic font-serif">Strategist</span> <br className="hidden sm:block"/> for AI Systems.
+            The <span className="shimmer-text italic font-serif px-4">Strategist</span> <br className="hidden sm:block"/> for AI Systems.
           </motion.h1>
           
           <motion.div 
