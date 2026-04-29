@@ -121,18 +121,18 @@ const Projects: React.FC = () => {
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto px-6 py-32">
-        <header className="mb-32 space-y-8 max-w-3xl">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter animate-in fade-in slide-in-from-bottom-4 duration-1000">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-40">
+        <header className="mb-20 md:mb-32 space-y-6 md:space-y-10 max-w-4xl">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter animate-in fade-in slide-in-from-bottom-4 duration-1000 leading-[0.9]">
             {title}<span className="text-gold">.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-off-white/60 leading-relaxed animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
+          <p className="text-xl md:text-2xl lg:text-3xl text-off-white/60 leading-relaxed animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200 lg:max-w-3xl">
             {subtitle}
           </p>
-          <div className="w-24 h-1 bg-gold animate-in fade-in zoom-in duration-1000 delay-400" />
+          <div className="w-16 md:w-24 h-1 bg-gold animate-in fade-in zoom-in duration-1000 delay-400" />
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-16 md:gap-y-32">
           {filteredProjects.map((project, idx) => {
             const isExpanded = expandedProjectId === project.id;
 
@@ -140,50 +140,53 @@ const Projects: React.FC = () => {
               <article 
                 id={project.id} 
                 key={project.id} 
-                className={`group bg-off-white/5 border border-off-white/10 p-8 transition-all duration-500 flex flex-col h-fit hover:border-gold/30 hover:bg-off-white/[0.07] hover:-translate-y-1 shadow-xl ${isExpanded ? 'md:col-span-2 border-gold/20 bg-off-white/[0.08] -translate-y-0' : ''}`}
+                className={`group bg-off-white/5 border border-off-white/10 p-6 md:p-10 transition-all duration-500 flex flex-col h-fit hover:border-gold/30 hover:bg-off-white/[0.07] hover:-translate-y-1 shadow-2xl ${isExpanded ? 'md:col-span-2 border-gold/20 bg-off-white/[0.08] -translate-y-0' : ''}`}
               >
                 {/* Image Preview */}
                 <div 
-                  className="aspect-video overflow-hidden bg-charcoal/40 mb-8 cursor-pointer relative border border-off-white/5"
+                  className="aspect-video overflow-hidden bg-charcoal/40 mb-8 md:mb-12 cursor-pointer relative border border-off-white/5 group/img"
                   onClick={() => project.images && project.images.length > 0 && setLightbox({ projectId: project.id, index: 0 })}
                 >
-                  <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                  <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 z-10" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 z-20 transition-opacity">
+                    <span className="px-4 py-2 bg-charcoal/80 text-gold text-[10px] font-bold uppercase tracking-widest border border-gold/30">View Gallery</span>
+                  </div>
                   {project.images?.[0] ? (
                     <img 
                       src={project.images[0].src} 
                       alt={project.images[0].alt} 
                       loading="lazy"
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                      className="w-full h-full object-cover grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100"
                     />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center text-off-white/20 space-y-2">
-                      <div className="w-12 h-px bg-off-white/10" />
-                      <span className="italic text-[10px] tracking-[0.2em] uppercase">Visual coming soon</span>
-                      <div className="w-12 h-px bg-off-white/10" />
+                    <div className="w-full h-full flex flex-col items-center justify-center text-off-white/20 space-y-4">
+                      <div className="w-16 h-px bg-off-white/10" />
+                      <span className="italic text-xs tracking-[0.3em] uppercase">Visual documentation pending</span>
+                      <div className="w-16 h-px bg-off-white/10" />
                     </div>
                   )}
                 </div>
 
                 {/* Header */}
-                <div className="space-y-4 mb-6">
+                <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
                   <div className="flex justify-between items-start">
-                    <span className="text-gold font-bold text-[10px] uppercase tracking-[0.4em] opacity-60">Project {idx + 1}</span>
+                    <span className="text-gold font-bold text-[10px] md:text-xs uppercase tracking-[0.4em] opacity-40">Section {idx + 1}</span>
                     {project.status && (
-                      <span className="px-2 py-0.5 bg-gold text-charcoal text-[8px] font-bold uppercase tracking-widest">
+                      <span className="px-3 py-1 bg-gold text-charcoal text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
                         {project.status}
                       </span>
                     )}
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500">
+                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500 leading-tight">
                     {project.title}
                   </h2>
                 </div>
 
                 {/* Problem Statement */}
-                <div className="space-y-2 mb-8">
-                  <h3 className="text-[9px] font-bold uppercase tracking-[0.3em] text-gold/40">The Problem</h3>
-                  <p className={`text-off-white/70 text-sm leading-relaxed ${isExpanded ? '' : 'line-clamp-3'}`}>
+                <div className="space-y-4 mb-10 md:mb-16">
+                  <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold/40">The Problem</h3>
+                  <p className={`text-off-white/70 text-base md:text-lg lg:text-xl leading-relaxed ${isExpanded ? '' : 'line-clamp-3 md:line-clamp-4'}`}>
                     {project.problem}
                   </p>
                 </div>
@@ -191,56 +194,56 @@ const Projects: React.FC = () => {
                 {/* View Details Link */}
                 <button 
                   onClick={() => toggleExpand(project.id)}
-                  className="mt-auto flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.4em] text-gold hover:text-off-white transition-all group/btn py-2"
+                  className="mt-auto flex items-center gap-4 text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] text-gold hover:text-off-white transition-all group/btn py-4 border-t border-off-white/5 w-full touch-manipulation"
                 >
-                  <span className="relative overflow-hidden inline-block">
+                  <span className="relative overflow-hidden inline-block flex-1 text-left">
                     <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">
-                      {isExpanded ? 'Show Less' : 'View Details'}
+                      {isExpanded ? 'Collapse Architecture' : 'Examine Architecture'}
                     </span>
                     <span className="absolute top-0 left-0 inline-block translate-y-full transition-transform duration-300 group-hover/btn:translate-y-0 text-off-white">
-                      {isExpanded ? 'Show Less' : 'View Details'}
+                      {isExpanded ? 'Collapse Architecture' : 'Examine Architecture'}
                     </span>
                   </span>
                   {isExpanded ? (
-                    <ChevronUp className="w-3 h-3 group-hover/btn:-translate-y-1 transition-transform" />
+                    <ChevronUp className="w-5 h-5 group-hover/btn:-translate-y-1 transition-transform" />
                   ) : (
-                    <ChevronRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+                    <ChevronDown className="w-5 h-5 group-hover/btn:translate-y-1 transition-transform" />
                   )}
                 </button>
 
                 {/* Expanded Content */}
                 {isExpanded && (
-                  <div className="mt-12 pt-12 border-t border-off-white/10 space-y-12 animate-in fade-in slide-in-from-top-4 duration-500">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                      <div className="space-y-10">
+                  <div className="mt-12 pt-12 md:mt-20 md:pt-20 border-t border-off-white/10 gap-y-12 md:gap-y-24 grid grid-cols-1 animate-in fade-in slide-in-from-top-6 duration-700">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+                      <div className="space-y-12 md:space-y-20">
                         {project.approach && (
-                          <div className="space-y-3">
-                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">The Approach</h3>
-                            <p className="text-off-white/70 text-sm leading-relaxed">{project.approach}</p>
+                          <div className="space-y-4 md:space-y-6">
+                            <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold/60">The Engineering Approach</h3>
+                            <p className="text-off-white/70 text-base md:text-lg leading-relaxed">{project.approach}</p>
                           </div>
                         )}
                         {project.context && (
-                          <div className="space-y-3">
-                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">Execution Detail</h3>
-                            <p className="text-off-white/70 text-sm leading-relaxed">{project.context}</p>
+                          <div className="space-y-4 md:space-y-6">
+                            <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold/60">Deployment Context</h3>
+                            <p className="text-off-white/70 text-base md:text-lg leading-relaxed">{project.context}</p>
                           </div>
                         )}
                       </div>
-                      <div className="space-y-10">
+                      <div className="space-y-12 md:space-y-20">
                         {project.outcome && (
-                          <div className="p-6 bg-teal/20 border border-gold/10 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-1 h-full bg-red" />
-                            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-red mb-3">The Outcome</h3>
-                            <p className="text-off-white text-sm leading-relaxed font-bold tracking-wide">{project.outcome}</p>
+                          <div className="p-8 md:p-12 bg-teal/20 border border-gold/10 relative overflow-hidden group/outcome">
+                            <div className="absolute top-0 left-0 w-1 md:w-2 h-full bg-red transform origin-bottom scale-y-100 group-hover/outcome:scale-y-110 transition-transform duration-700" />
+                            <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-red mb-6">Strategic Outcome</h3>
+                            <p className="text-off-white text-lg md:text-2xl font-bold tracking-tight leading-tight">{project.outcome}</p>
                           </div>
                         )}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16">
                           {project.toolkit?.map((group, gIdx) => (
-                            <div key={gIdx} className="space-y-3">
-                              <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/40">{group.group}</h4>
-                              <ul className="flex flex-wrap gap-2">
+                            <div key={gIdx} className="space-y-6">
+                              <h4 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold/40 border-b border-gold/10 pb-2">{group.group}</h4>
+                              <ul className="flex flex-wrap gap-2 md:gap-3">
                                 {group.tools.map((tool, tIdx) => (
-                                  <li key={tIdx} className="px-2 py-1 bg-off-white/5 border border-off-white/10 text-[9px] font-bold text-off-white/60 uppercase tracking-widest">
+                                  <li key={tIdx} className="px-3 py-1.5 bg-off-white/5 border border-off-white/10 text-[9px] md:text-[10px] font-bold text-off-white/70 uppercase tracking-widest hover:border-gold/40 transition-colors cursor-default">
                                     {tool}
                                   </li>
                                 ))}
@@ -253,22 +256,24 @@ const Projects: React.FC = () => {
 
                     {/* Full Gallery */}
                     {project.images && project.images.length > 1 && (
-                      <div className="space-y-6">
-                        <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/60">Project Gallery</h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                      <div className="space-y-8 md:space-y-12">
+                        <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold/60 border-l-2 border-gold/20 pl-6">Technical Documentation</h3>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                           {project.images.map((img, iIdx) => (
                             <div 
                               key={iIdx} 
-                              className="aspect-square overflow-hidden cursor-pointer relative group/thumb"
+                              className="aspect-square overflow-hidden cursor-pointer relative group/thumb border border-off-white/5"
                               onClick={() => setLightbox({ projectId: project.id, index: iIdx })}
                             >
-                              <div className="absolute inset-0 bg-gold/20 opacity-0 group-hover/thumb:opacity-100 transition-opacity z-10" />
+                              <div className="absolute inset-0 bg-gold/30 opacity-0 group-hover/thumb:opacity-100 transition-opacity z-10 flex items-center justify-center">
+                                <span className="text-[8px] font-bold uppercase tracking-widest text-charcoal bg-gold px-2 py-1">View</span>
+                              </div>
                               <img 
                                 src={img.src} 
                                 alt={img.alt} 
                                 loading="lazy"
                                 referrerPolicy="no-referrer"
-                                className="w-full h-full object-cover grayscale group-hover/thumb:grayscale-0 transition-all duration-500"
+                                className="w-full h-full object-cover grayscale group-hover/thumb:grayscale-0 transition-all duration-700"
                               />
                             </div>
                           ))}
