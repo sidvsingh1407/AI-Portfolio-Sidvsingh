@@ -23,14 +23,14 @@ const About: React.FC = () => {
             <p className="text-[10px] text-charcoal/40 mt-8 text-center uppercase tracking-[0.4em] font-bold">{aboutPage.avatar.hint}</p>
           </div>
           <div className="flex-1 space-y-10 md:space-y-16 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-charcoal leading-[0.95]">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-charcoal leading-[0.95]">
               I build systems that create <span className="text-red italic font-serif">clarity</span>.
             </h1>
             <div className="space-y-8 lg:border-l-2 lg:border-red/20 lg:pl-12 max-w-3xl mx-auto lg:mx-0">
-              <p className="text-xl md:text-2xl lg:text-3xl text-charcoal/80 leading-snug font-medium">
+              <p className="text-lg md:text-xl lg:text-2xl text-charcoal/80 leading-snug font-medium">
                 {aboutPage.bio}
               </p>
-              <p className="text-lg md:text-xl text-charcoal/50 leading-relaxed italic font-serif">
+              <p className="text-base md:text-lg text-charcoal/50 leading-relaxed italic font-serif">
                 {aboutPage.passion}
               </p>
             </div>
@@ -43,7 +43,7 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 md:mb-32">
             <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] text-gold mb-6">The Evolution</h2>
-            <p className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">A timeline of strategic growth.</p>
+            <p className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight">A timeline of strategic growth.</p>
           </div>
           <div className="space-y-12 md:space-y-24 relative before:absolute before:left-4 md:before:left-1/2 before:top-0 before:bottom-0 before:w-px before:bg-off-white/10">
             {aboutPage.journey.map((item, index) => (
@@ -51,9 +51,9 @@ const About: React.FC = () => {
                 <div className="absolute left-4 md:left-1/2 top-4 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-2 h-2 md:w-3 md:h-3 bg-gold border-[3px] md:border-4 border-teal z-10" />
                 <div className={`w-full md:w-[45%] pl-12 md:pl-0 p-8 md:p-12 bg-off-white/5 border border-off-white/10 hover:border-gold/30 transition-all group lg:min-h-[280px] flex flex-col justify-center`}>
                   <span className="text-gold text-[10px] md:text-xs font-bold mb-4 block uppercase tracking-widest">{item.year}</span>
-                  <h3 className="text-xl md:text-3xl font-bold mb-2 text-off-white group-hover:text-gold transition-colors leading-tight">{item.title}</h3>
-                  <h4 className="text-xs md:text-base text-off-white/40 mb-6 font-medium">{item.organization}</h4>
-                  <p className="text-off-white/60 text-sm leading-relaxed">{item.description}</p>
+                  <h3 className="text-lg md:text-2xl font-bold mb-2 text-off-white group-hover:text-gold transition-colors leading-tight">{item.title}</h3>
+                  <h4 className="text-[10px] md:text-sm text-off-white/40 mb-6 font-medium">{item.organization}</h4>
+                  <p className="text-off-white/60 text-xs leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -66,15 +66,15 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="mb-20 md:mb-32 max-w-3xl">
             <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] text-red mb-6">Core Competencies</h2>
-            <p className="text-3xl sm:text-4xl md:text-6xl font-bold text-charcoal tracking-tight">Strategic blending of business and tech.</p>
+            <p className="text-2xl sm:text-3xl md:text-5xl font-bold text-charcoal tracking-tight">Strategic blending of business and tech.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {aboutPage.competencies.map((c, i) => (
               <div key={i} className="space-y-6 p-8 md:p-12 bg-off-white border border-charcoal/5 shadow-sm hover:shadow-2xl transition-all relative group">
                 <div className="absolute top-0 left-0 w-full h-1 bg-red scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                <span className="text-red/20 font-serif italic text-4xl block mb-4">0{i + 1}</span>
-                <h3 className="text-2xl font-bold text-charcoal group-hover:text-red transition-colors">{c.title}</h3>
-                <p className="text-charcoal/60 text-base leading-relaxed">{c.description}</p>
+                <span className="text-red/20 font-serif italic text-3xl block mb-4">0{i + 1}</span>
+                <h3 className="text-xl font-bold text-charcoal group-hover:text-red transition-colors">{c.title}</h3>
+                <p className="text-charcoal/60 text-sm leading-relaxed">{c.description}</p>
               </div>
             ))}
           </div>
@@ -87,7 +87,7 @@ const About: React.FC = () => {
           <div className="absolute -top-20 -left-20 text-[20vw] font-bold text-off-white/[0.02] pointer-events-none select-none uppercase tracking-tighter">Mission</div>
           <div className="relative z-10 space-y-12 md:space-y-20">
             <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] text-gold">The Perspective</h2>
-            <div className="text-off-white/80 text-xl sm:text-2xl md:text-4xl leading-snug space-y-10 font-light tracking-tight">
+            <div className="text-off-white/80 text-lg sm:text-xl md:text-2xl leading-snug space-y-10 font-light tracking-tight">
               {aboutPage.mission.split('\n').map((line, i) => (
                 <p key={i} className="max-w-4xl">{line}</p>
               ))}
@@ -109,8 +109,8 @@ const About: React.FC = () => {
                 <div key={i} className="flex flex-col gap-4 group">
                   <span className="w-6 h-px bg-red group-hover:w-12 transition-all duration-500"></span>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-charcoal mb-2 leading-tight">{r.title}</h3>
-                    <p className="text-xs md:text-sm text-charcoal/40 font-bold uppercase tracking-widest">{r.organization} • {r.date}</p>
+                    <h3 className="text-lg md:text-xl font-bold text-charcoal mb-2 leading-tight">{r.title}</h3>
+                    <p className="text-[10px] md:text-xs text-charcoal/40 font-bold uppercase tracking-widest">{r.organization} • {r.date}</p>
                   </div>
                 </div>
               ))}
@@ -124,7 +124,7 @@ const About: React.FC = () => {
             </h2>
             <ul className="grid grid-cols-1 gap-6">
               {aboutPage.certifications.map((c, i) => (
-                <li key={i} className="flex items-center gap-6 text-charcoal/70 text-base group p-4 hover:bg-off-white transition-colors border-l border-transparent hover:border-red">
+                <li key={i} className="flex items-center gap-6 text-charcoal/70 text-sm group p-4 hover:bg-off-white transition-colors border-l border-transparent hover:border-red">
                   <span className="w-2 h-2 bg-charcoal/10 group-hover:bg-red shrink-0 transition-colors" />
                   {c}
                 </li>

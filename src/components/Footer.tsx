@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer id="footer" className="bg-charcoal text-off-white py-20 px-6 md:px-12 border-t border-off-white/5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
         <div className="sm:col-span-2 space-y-8">
-          <Link to="/" className="text-3xl md:text-4xl font-bold tracking-tighter text-off-white">
+          <Link to="/" className="text-2xl md:text-3xl font-bold tracking-tighter text-off-white">
             SVS<span className="text-gold">.</span>
           </Link>
           <p className="text-off-white/50 max-w-sm leading-relaxed text-sm md:text-base">

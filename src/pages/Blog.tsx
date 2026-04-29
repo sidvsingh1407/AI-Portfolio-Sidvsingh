@@ -13,10 +13,10 @@ const Blog: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="space-y-20 md:space-y-32">
           <header className="space-y-6 md:space-y-10 max-w-4xl">
-            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9]">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9]">
               Insights<span className="text-gold">.</span>
             </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-off-white/60 leading-relaxed lg:max-w-3xl">
+            <p className="text-lg md:text-xl lg:text-2xl text-off-white/60 leading-relaxed lg:max-w-3xl">
               Strategic observations at the intersection of AI architecture, business logic, and human-centered systems.
             </p>
             <div className="w-16 md:w-24 h-1 bg-gold" />
@@ -43,11 +43,11 @@ const Blog: React.FC = () => {
                     </div>
                   </div>
 
-                  <h2 className="text-2xl md:text-4xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500 leading-tight">
+                  <h2 className="text-xl md:text-3xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500 leading-tight">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </h2>
 
-                  <p className="text-off-white/60 text-base md:text-lg leading-relaxed line-clamp-3">
+                  <p className="text-off-white/60 text-sm md:text-base leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
 

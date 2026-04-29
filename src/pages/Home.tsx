@@ -109,28 +109,59 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-12 relative overflow-hidden bg-teal text-off-white py-20">
+      <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-12 relative overflow-hidden bg-teal text-off-white py-24 md:py-32">
         <div className="absolute inset-0 cinematic-gradient pointer-events-none" />
+        <div className="shiny-aura" />
         <FloatingParticles />
+        
         <div className="relative z-10 w-full max-w-7xl mx-auto">
-          <span className="text-gold font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-6 md:mb-10 block animate-in fade-in slide-in-from-bottom-2 duration-1000">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-gold font-bold uppercase tracking-[0.5em] text-xs md:text-sm mb-8 md:mb-12 block text-glow-gold"
+          >
             Siddharth Vikram Singh
-          </span>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8 md:mb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200 leading-[0.9]">
-            The <span className="text-gold italic font-serif">Strategist</span> <br className="hidden sm:block"/> for AI Systems.
-          </h1>
-          <div className="w-16 md:w-24 h-1 bg-gold mx-auto mb-10 md:mb-16 animate-in fade-in zoom-in duration-1000 delay-500" />
-          <p className="text-lg md:text-xl lg:text-2xl text-off-white/80 max-w-3xl mx-auto leading-relaxed mb-10 md:mb-16 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300 px-4 md:px-0">
+          </motion.span>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tighter mb-10 md:mb-16 leading-[0.85] text-off-white"
+          >
+            The <span className="shimmer-text italic font-serif">Strategist</span> <br className="hidden sm:block"/> for AI Systems.
+          </motion.h1>
+          
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="w-24 md:w-40 h-1.5 bg-gold mx-auto mb-12 md:mb-20 shadow-[0_0_15px_rgba(212,183,106,0.5)] origin-center" 
+          />
+          
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="text-lg md:text-2xl lg:text-3xl text-off-white/90 max-w-4xl mx-auto leading-tight mb-12 md:mb-20 font-medium tracking-tight px-4 md:px-0"
+          >
             I architect intelligent workflows that translate complex business logic into scalable, automated impact.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
-            <Link to="/agentic-systems" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-6 bg-red text-off-white font-bold rounded-none hover:scale-105 transition-all shadow-2xl glitch-hover uppercase tracking-widest text-[10px] md:text-xs">
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8"
+          >
+            <Link to="/agentic-systems" className="w-full sm:w-auto px-10 md:px-16 py-5 md:py-7 bg-red text-off-white font-bold rounded-none hover:scale-110 transition-all shadow-[0_20px_50px_rgba(178,58,36,0.3)] glitch-hover uppercase tracking-widest text-xs md:text-sm">
               Explore Systems
             </Link>
-            <Link to="/about" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-6 bg-transparent text-off-white border border-off-white/30 font-bold rounded-none hover:bg-off-white/10 transition-all uppercase tracking-widest text-[10px] md:text-xs text-center">
+            <Link to="/about" className="w-full sm:w-auto px-10 md:px-16 py-5 md:py-7 bg-transparent text-off-white border-2 border-off-white/40 font-bold rounded-none hover:bg-off-white/10 hover:border-off-white transition-all uppercase tracking-widest text-xs md:text-sm text-center">
               The Process
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -140,9 +171,9 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-24 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold mb-4">Selected Works</h2>
-              <p className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Agentic Systems in Action.</p>
+              <p className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight">Agentic Systems in Action.</p>
             </div>
-            <Link to="/agentic-systems" className="text-gold font-bold hover:text-red transition-colors flex items-center gap-2 uppercase tracking-widest text-[10px] md:text-xs group">
+            <Link to="/agentic-systems" className="text-gold font-bold hover:text-red transition-colors flex items-center gap-2 uppercase tracking-widest text-[9px] md:text-[10px] group">
               View all projects 
               <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -158,20 +189,20 @@ const Home: React.FC = () => {
                 </div>
                 <div className="mb-8">
                   <span className="text-[10px] font-bold text-gold/40 block mb-2">0{idx + 1}</span>
-                  <h3 className="text-2xl md:text-4xl font-bold text-off-white group-hover:text-gold transition-colors leading-tight">{project.title}</h3>
+                  <h3 className="text-xl md:text-3xl font-bold text-off-white group-hover:text-gold transition-colors leading-tight">{project.title}</h3>
                 </div>
                 <div className="space-y-8 border-l border-gold/20 pl-8 flex-grow">
                   <div className="space-y-3">
-                    <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-gold/60">Problem</span>
-                    <p className="text-off-white/70 text-sm md:text-base leading-relaxed line-clamp-3 md:line-clamp-4">{project.problem}</p>
+                    <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] font-bold text-gold/60">Problem</span>
+                    <p className="text-off-white/70 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-4">{project.problem}</p>
                   </div>
                   <div className="space-y-3">
-                    <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-gold/60">Solution</span>
-                    <p className="text-off-white/70 text-sm md:text-base leading-relaxed line-clamp-3 md:line-clamp-4">{project.approach}</p>
+                    <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] font-bold text-gold/60">Solution</span>
+                    <p className="text-off-white/70 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-4">{project.approach}</p>
                   </div>
                   <div className="pt-4 border-t border-off-white/5 mt-auto">
-                    <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-gold/60 block mb-2">Result</span>
-                    <p className="text-gold text-base md:text-lg font-bold tracking-wide">{project.outcome}</p>
+                    <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] font-bold text-gold/60 block mb-2">Result</span>
+                    <p className="text-gold text-sm md:text-base font-bold tracking-wide">{project.outcome}</p>
                   </div>
                 </div>
               </Link>
@@ -185,10 +216,10 @@ const Home: React.FC = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-40 px-6 md:px-12 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-10 tracking-tighter text-charcoal leading-none">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-charcoal leading-none">
             Let's build something <br className="hidden sm:block"/><span className="text-red italic font-serif">intelligent</span>.
           </h2>
-          <p className="text-lg md:text-xl text-charcoal/60 mb-12 md:mb-20 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-charcoal/60 mb-12 md:mb-20 leading-relaxed max-w-2xl mx-auto">
             Whether you need a custom automation or are exploring AI possibilities, I'm here to translate your vision into code.
           </p>
           

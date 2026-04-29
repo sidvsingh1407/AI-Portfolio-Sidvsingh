@@ -163,17 +163,17 @@ const BlogPost: React.FC = () => {
               </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter leading-[0.95] text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter leading-[0.95] text-white">
               {post.title}
             </h1>
           </header>
 
           <div className="prose prose-invert prose-gold max-w-none 
             prose-headings:tracking-tighter prose-headings:font-bold 
-            prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:border-l-4 prose-h2:border-gold prose-h2:pl-6 prose-h2:my-12
-            prose-h3:text-2xl md:prose-h3:text-3xl prose-h3:text-gold prose-h3:mt-16
-            prose-p:text-lg md:prose-p:text-xl prose-p:leading-relaxed prose-p:text-off-white/80
-            prose-li:text-lg md:prose-li:text-xl prose-li:text-off-white/70
+            prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:border-l-4 prose-h2:border-gold prose-h2:pl-6 prose-h2:my-12
+            prose-h3:text-xl md:prose-h3:text-2xl prose-h3:text-gold prose-h3:mt-16
+            prose-p:text-base md:prose-p:text-lg prose-p:leading-relaxed prose-p:text-off-white/80
+            prose-li:text-base md:prose-li:text-lg prose-li:text-off-white/70
             prose-strong:text-gold prose-strong:font-bold
             prose-code:text-gold prose-code:bg-off-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-sm prose-code:before:content-none prose-code:after:content-none
             prose-pre:bg-off-white/5 prose-pre:border prose-pre:border-off-white/10 prose-pre:p-8 md:prose-pre:p-12 prose-pre:rounded-none
@@ -211,12 +211,29 @@ const BlogPost: React.FC = () => {
               </div>
             </div>
             <div className="flex gap-4">
-              <button className="flex items-center gap-2 px-4 py-2 bg-off-white/5 border border-off-white/10 text-[10px] font-bold uppercase tracking-widest hover:border-gold/50 transition-colors">
+              <button 
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: post.title,
+                      text: post.excerpt,
+                      url: window.location.href,
+                    }).catch(console.error);
+                  } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Link copied to clipboard!');
+                  }
+                }}
+                className="flex items-center gap-2 px-4 py-2 bg-off-white/5 border border-off-white/10 text-[10px] font-bold uppercase tracking-widest hover:border-gold/50 transition-colors"
+              >
                 <Share2 className="w-3 h-3" /> Share Insights
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-red text-off-white text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl">
+              <a 
+                href={`mailto:vikramsiddharth14@gmail.com?subject=Discussing Strategy: ${post.title}`}
+                className="flex items-center gap-2 px-4 py-2 bg-red text-off-white text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl"
+              >
                 Discuss Strategy
-              </button>
+              </a>
             </div>
           </footer>
         </motion.div>

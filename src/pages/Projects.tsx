@@ -123,10 +123,10 @@ const Projects: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 py-20 md:py-40">
         <header className="mb-20 md:mb-32 space-y-6 md:space-y-10 max-w-4xl">
-          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter animate-in fade-in slide-in-from-bottom-4 duration-1000 leading-[0.9]">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter animate-in fade-in slide-in-from-bottom-4 duration-1000 leading-[0.9]">
             {title}<span className="text-gold">.</span>
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl text-off-white/60 leading-relaxed animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200 lg:max-w-3xl">
+          <p className="text-lg md:text-xl lg:text-2xl text-off-white/60 leading-relaxed animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200 lg:max-w-3xl">
             {subtitle}
           </p>
           <div className="w-16 md:w-24 h-1 bg-gold animate-in fade-in zoom-in duration-1000 delay-400" />
@@ -178,7 +178,7 @@ const Projects: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500 leading-tight">
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500 leading-tight">
                     {project.title}
                   </h2>
                 </div>
@@ -186,7 +186,7 @@ const Projects: React.FC = () => {
                 {/* Problem Statement */}
                 <div className="space-y-4 mb-10 md:mb-16">
                   <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold/40">The Problem</h3>
-                  <p className={`text-off-white/70 text-base md:text-lg lg:text-xl leading-relaxed ${isExpanded ? '' : 'line-clamp-3 md:line-clamp-4'}`}>
+                  <p className={`text-off-white/70 text-sm md:text-base lg:text-lg leading-relaxed ${isExpanded ? '' : 'line-clamp-3 md:line-clamp-4'}`}>
                     {project.problem}
                   </p>
                 </div>
@@ -219,13 +219,13 @@ const Projects: React.FC = () => {
                         {project.approach && (
                           <div className="space-y-4 md:space-y-6">
                             <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold/60">The Engineering Approach</h3>
-                            <p className="text-off-white/70 text-base md:text-lg leading-relaxed">{project.approach}</p>
+                            <p className="text-off-white/70 text-sm md:text-base leading-relaxed">{project.approach}</p>
                           </div>
                         )}
                         {project.context && (
                           <div className="space-y-4 md:space-y-6">
                             <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold/60">Deployment Context</h3>
-                            <p className="text-off-white/70 text-base md:text-lg leading-relaxed">{project.context}</p>
+                            <p className="text-off-white/70 text-sm md:text-base leading-relaxed">{project.context}</p>
                           </div>
                         )}
                       </div>
@@ -234,7 +234,7 @@ const Projects: React.FC = () => {
                           <div className="p-8 md:p-12 bg-teal/20 border border-gold/10 relative overflow-hidden group/outcome">
                             <div className="absolute top-0 left-0 w-1 md:w-2 h-full bg-red transform origin-bottom scale-y-100 group-hover/outcome:scale-y-110 transition-transform duration-700" />
                             <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-red mb-6">Strategic Outcome</h3>
-                            <p className="text-off-white text-lg md:text-2xl font-bold tracking-tight leading-tight">{project.outcome}</p>
+                            <p className="text-off-white text-base md:text-xl font-bold tracking-tight leading-tight">{project.outcome}</p>
                           </div>
                         )}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16">
