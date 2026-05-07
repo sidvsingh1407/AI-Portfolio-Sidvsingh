@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
+import FloatingParticles from './FloatingParticles';
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -24,9 +25,9 @@ const Header: React.FC = () => {
   const isAboutPage = location.pathname === '/about';
 
   const navLinks = [
-    { to: "/agentic-systems", label: "Systems" },
-    { to: "/vibe-coding", label: "Vibes" },
-    { to: "/blog", label: "Insights" },
+    { to: "/systems", label: "Systems" },
+    { to: "/prototypes", label: "Prototypes" },
+    { to: "/insights", label: "Insights" },
     { to: "/about", label: "About" },
   ];
 
@@ -34,9 +35,9 @@ const Header: React.FC = () => {
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen ? 'bg-teal/95 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-6 md:py-8'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative z-10">
         <Link to="/" className={`text-2xl font-bold tracking-tighter group transition-colors ${!isScrolled && !isMobileMenuOpen && isAboutPage ? 'text-charcoal' : 'text-off-white'}`}>
-          SVS<span className="text-gold group-hover:text-red transition-colors">.</span>
+          SVS<span className="text-gold">.</span>
         </Link>
         
         {/* Desktop Nav */}
@@ -70,6 +71,17 @@ const Header: React.FC = () => {
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
+
+      {isScrolled && (
+        <FloatingParticles 
+          particleCount={60} 
+          speed={0.2} 
+          opacity={0.3} 
+          minSize={1} 
+          maxSize={3}
+          colors={['#D4B76A', '#F5F5DC']} // Only gold/off-white for subtleness
+        />
+      )}
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>

@@ -37,7 +37,7 @@ interface FirestoreErrorInfo {
 
 const Home: React.FC = () => {
   const { projects } = content;
-  const featuredProjects = projects.filter(p => p.category === 'agentic-systems');
+  const featuredProjects = projects.filter(p => p.category === 'systems');
 
   const [formData, setFormData] = useState({
     name: '',
@@ -112,7 +112,13 @@ const Home: React.FC = () => {
       <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-12 relative overflow-hidden bg-teal text-off-white py-24 md:py-32">
         <div className="absolute inset-0 cinematic-gradient pointer-events-none" />
         <div className="shiny-aura" />
-        <FloatingParticles />
+        <FloatingParticles 
+          particleCount={600} 
+          speed={0.4} 
+          opacity={0.6} 
+          minSize={1.5} 
+          maxSize={4.5} 
+        />
         
         <div className="relative z-10 w-full max-w-7xl mx-auto">
           <motion.span 
@@ -130,7 +136,8 @@ const Home: React.FC = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tight mb-10 md:mb-16 leading-[0.9] text-off-white"
           >
-            The <span className="shimmer-text italic font-serif px-4">Strategist</span> <br className="hidden sm:block"/> for AI Systems.
+            AI <span className="shimmer-text italic font-serif px-2 md:px-4">Enthusiast</span> <br className="hidden sm:block"/> 
+            <span className="text-xl sm:text-3xl md:text-5xl lg:text-6xl block mt-4 md:mt-8 opacity-80 font-medium tracking-normal text-gold/90">for Modern AI Business Problems.</span>
           </motion.h1>
           
           <motion.div 
@@ -146,7 +153,7 @@ const Home: React.FC = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-lg md:text-2xl lg:text-3xl text-off-white/90 max-w-4xl mx-auto leading-tight mb-12 md:mb-20 font-medium tracking-tight px-4 md:px-0"
           >
-            I architect intelligent workflows that translate complex business logic into scalable, automated impact.
+            Investigating the operational consequences and systems-level behavior of modern AI to deconstruct the friction of real-world deployment.
           </motion.p>
           
           <motion.div 
@@ -155,11 +162,11 @@ const Home: React.FC = () => {
             transition={{ duration: 1, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8"
           >
-            <Link to="/agentic-systems" className="w-full sm:w-auto px-10 md:px-16 py-5 md:py-7 bg-red text-off-white font-bold rounded-none hover:scale-110 transition-all shadow-[0_20px_50px_rgba(178,58,36,0.3)] glitch-hover uppercase tracking-widest text-xs md:text-sm">
+            <Link to="/systems" className="w-full sm:w-auto px-10 md:px-16 py-5 md:py-7 bg-red text-off-white font-bold rounded-none hover:scale-110 transition-all shadow-[0_20px_50px_rgba(178,58,36,0.3)] glitch-hover uppercase tracking-widest text-xs md:text-sm">
               Explore Systems
             </Link>
-            <Link to="/about" className="w-full sm:w-auto px-10 md:px-16 py-5 md:py-7 bg-transparent text-off-white border-2 border-off-white/40 font-bold rounded-none hover:bg-off-white/10 hover:border-off-white transition-all uppercase tracking-widest text-xs md:text-sm text-center">
-              The Process
+            <Link to="/prototypes" className="w-full sm:w-auto px-10 md:px-16 py-5 md:py-7 bg-transparent text-off-white border-2 border-off-white/40 font-bold rounded-none hover:bg-off-white/10 hover:border-off-white transition-all uppercase tracking-widest text-xs md:text-sm text-center">
+              Prototypes
             </Link>
           </motion.div>
         </div>
@@ -170,11 +177,11 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-24 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold mb-4">Selected Works</h2>
-              <p className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight">Agentic Systems in Action.</p>
+              <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold mb-4">Systems</h2>
+              <p className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight">Operational Analysis in Action.</p>
             </div>
-            <Link to="/agentic-systems" className="text-gold font-bold hover:text-red transition-colors flex items-center gap-2 uppercase tracking-widest text-[9px] md:text-[10px] group">
-              View all projects 
+            <Link to="/systems" className="text-gold font-bold hover:text-red transition-colors flex items-center gap-2 uppercase tracking-widest text-[9px] md:text-[10px] group">
+              View all systems 
               <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
@@ -183,7 +190,7 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
             {featuredProjects.map((project, idx) => (
-              <Link key={project.id} to={`/agentic-systems#${project.id}`} className="group cursor-pointer block p-8 md:p-14 bg-off-white/5 border border-off-white/10 hover:border-gold/30 transition-all duration-500 relative overflow-hidden lg:min-h-[450px] flex flex-col">
+              <Link key={project.id} to={`/systems#${project.id}`} className="group cursor-pointer block p-8 md:p-14 bg-off-white/5 border border-off-white/10 hover:border-gold/30 transition-all duration-500 relative overflow-hidden lg:min-h-[450px] flex flex-col">
                 <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity">
                   <svg className="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </div>
@@ -193,11 +200,11 @@ const Home: React.FC = () => {
                 </div>
                 <div className="space-y-8 border-l border-gold/20 pl-8 flex-grow">
                   <div className="space-y-3">
-                    <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] font-bold text-gold/60">Problem</span>
+                    <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] font-bold text-gold/60">Investigative Problem</span>
                     <p className="text-off-white/70 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-4">{project.problem}</p>
                   </div>
                   <div className="space-y-3">
-                    <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] font-bold text-gold/60">Solution</span>
+                    <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] font-bold text-gold/60">Analytical Approach</span>
                     <p className="text-off-white/70 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-4">{project.approach}</p>
                   </div>
                   <div className="pt-4 border-t border-off-white/5 mt-auto">
@@ -220,7 +227,7 @@ const Home: React.FC = () => {
             Let's build something <br className="hidden sm:block"/><span className="text-red italic font-serif">intelligent</span>.
           </h2>
           <p className="text-base md:text-lg text-charcoal/60 mb-12 md:mb-20 leading-relaxed max-w-2xl mx-auto">
-            Whether you need a custom automation or are exploring AI possibilities, I'm here to translate your vision into code.
+            Whether you need a systems audit or are exploring operational friction in AI deployment, I'm here to analyze and deconstruct the logic.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 mb-16 md:mb-24 text-[10px] md:text-xs font-bold uppercase tracking-widest">

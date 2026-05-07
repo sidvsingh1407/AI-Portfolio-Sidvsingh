@@ -24,7 +24,7 @@ const About: React.FC = () => {
           </div>
           <div className="flex-1 space-y-10 md:space-y-16 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-charcoal leading-[0.95]">
-              I build systems that create <span className="text-red italic font-serif">clarity</span>.
+              Analyzing the systems that <span className="text-red italic font-serif">drive</span> operations.
             </h1>
             <div className="space-y-8 lg:border-l-2 lg:border-red/20 lg:pl-12 max-w-3xl mx-auto lg:mx-0">
               <p className="text-lg md:text-xl lg:text-2xl text-charcoal/80 leading-snug font-medium">
@@ -61,12 +61,40 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* Recommendations - Light Grey Background */}
+      {aboutPage.recommendations.length > 0 && (
+        <section className="bg-off-white/50 py-20 md:py-40 px-6 md:px-12 border-y border-charcoal/5">
+          <div className="max-w-5xl mx-auto space-y-24 md:space-y-32">
+            <div className="space-y-6">
+              <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] text-red mb-4">Recommendations</h2>
+              <p className="text-xl md:text-2xl text-charcoal/40 font-medium italic font-serif leading-relaxed">Professional observations from those within the system.</p>
+            </div>
+            <div className="space-y-20 md:space-y-32">
+              {aboutPage.recommendations.map((rec, i) => (
+                <div key={i} className="group relative">
+                  <div className="absolute -left-8 top-0 text-7xl font-serif text-red/10 select-none">"</div>
+                  <div className="space-y-8 max-w-3xl">
+                    <p className="text-lg md:text-2xl text-charcoal/80 leading-relaxed font-light tracking-tight">
+                      {rec.text}
+                    </p>
+                    <div className="pt-4 border-t border-charcoal/5">
+                      <h4 className="text-sm md:text-base font-bold text-charcoal group-hover:text-red transition-colors">{rec.author}</h4>
+                      <p className="text-[10px] md:text-xs text-charcoal/40 font-bold uppercase tracking-widest mt-1">{rec.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Core Competencies - White Background */}
       <section className="bg-white py-20 md:py-40 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20 md:mb-32 max-w-3xl">
             <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] text-red mb-6">Core Competencies</h2>
-            <p className="text-2xl sm:text-3xl md:text-5xl font-bold text-charcoal tracking-tight">Strategic blending of business and tech.</p>
+            <p className="text-2xl sm:text-3xl md:text-5xl font-bold text-charcoal tracking-tight">Analyzing the intersection of business logic and tech.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {aboutPage.competencies.map((c, i) => (

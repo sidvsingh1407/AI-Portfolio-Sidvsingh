@@ -31,6 +31,16 @@ const Blog: React.FC = () => {
                 transition={{ delay: idx * 0.1 }}
                 className="group flex flex-col h-full bg-off-white/5 border border-off-white/10 hover:border-gold/30 transition-all duration-500 overflow-hidden shadow-2xl p-8 md:p-12"
               >
+                {post.image && (
+                  <div className="aspect-video overflow-hidden mb-8 -mx-8 -mt-8 md:-mx-12 md:-mt-12 group-hover:scale-105 transition-transform duration-700 ease-out">
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                )}
                 <div className="flex flex-col flex-grow space-y-6">
                   <div className="flex items-center justify-between mb-2">
                     <span className="px-3 py-1 bg-gold/10 text-gold text-[9px] md:text-[10px] font-bold uppercase tracking-widest border border-gold/20">
@@ -44,7 +54,7 @@ const Blog: React.FC = () => {
                   </div>
 
                   <h2 className="text-xl md:text-3xl font-bold tracking-tight group-hover:text-gold transition-colors duration-500 leading-tight">
-                    <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                    <Link to={`/insights/${post.slug}`}>{post.title}</Link>
                   </h2>
 
                   <p className="text-off-white/60 text-sm md:text-base leading-relaxed line-clamp-3">
@@ -52,10 +62,10 @@ const Blog: React.FC = () => {
                   </p>
 
                   <Link 
-                    to={`/blog/${post.slug}`}
+                    to={`/insights/${post.slug}`}
                     className="mt-auto pt-8 flex items-center gap-3 text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-gold group-hover:text-off-white transition-all"
                   >
-                    Examine Intel <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    Read Insights <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </motion.article>

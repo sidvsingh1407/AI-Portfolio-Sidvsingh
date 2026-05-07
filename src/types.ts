@@ -7,7 +7,7 @@ export interface ToolkitGroup {
 export interface Project {
   id: string;
   slug: string;
-  category: 'agentic-systems' | 'vibe-coding';
+  category: 'systems' | 'prototypes';
   title: string;
   problem?: string;
   context?: string;
@@ -17,6 +17,12 @@ export interface Project {
   status?: string;
   toolkit?: ToolkitGroup[];
   images?: { src: string; alt: string; hint: string; width: number; height: number; }[];
+}
+
+export interface Recommendation {
+  author: string;
+  role: string;
+  text: string;
 }
 
 export interface Competency {
@@ -39,6 +45,7 @@ export interface AboutPageData {
   mission: string;
   recognition: Recognition[];
   certifications: string[];
+  recommendations: Recommendation[];
 }
 
 export interface AgentStackItem {

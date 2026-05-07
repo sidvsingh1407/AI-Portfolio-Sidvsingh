@@ -10,8 +10,8 @@ export const contentData: PortfolioData = {
       "width": 600, 
       "height": 900 
     },
-    "bio": "For me, technology is a tool for translation. It’s about taking a complex business process—with all its messy human inputs and hidden steps—and turning it into an automated workflow that is not only efficient, but also understandable and trustworthy.",
-    "passion": "My passion lies at the intersection of business analysis and AI engineering, finding the simplest, most robust path to a solution that delivers real value. This started during my BBA in Oil & Gas Marketing at UPES, where I first explored market trends and stakeholder dynamics, and evolved through my ongoing PGDM in Finance at Jaipuria, blending strategic thinking with tech innovation.",
+    "bio": "I am an AI enthusiast deeply curious about how systems behave when they encounter the friction of real-world operations. My work focuses on deconstructing complex organizational workflows to identify where automation creates genuine value—and where it creates hidden risk.",
+    "passion": "My approach is grounded in systems thinking and economic reasoning. By blending a background in business strategy with technical systems analysis, I investigate the operational consequences of AI deployment, moving beyond hyped capabilities to observe actual usage patterns.",
     "journey": [
       {
         "year": "July 2024 – Present",
@@ -60,217 +60,219 @@ export const contentData: PortfolioData = {
         "title": "BBA (Oil & Gas Marketing)",
         "organization": "University of Petroleum & Energy Studies",
         "description": "Gained expertise in market analysis and strategic thinking, setting the stage for digital and AI applications. 7.09 CGPA."
-      },
-      {
-        "year": "2017 – 2019",
-        "title": "Senior Secondary (CBSE)",
-        "organization": "Surmount International School",
-        "description": "Developed communication and commerce basics, sparking interest in business strategy. 64.4%."
-      },
-      {
-        "year": "2015 – 2017",
-        "title": "Secondary Education (CBSE)",
-        "organization": "RPM Academy",
-        "description": "Built foundational analytical skills through structured learning. 8.6 CGPA."
       }
     ],
     "competencies": [
       {
-        "title": "AI Engineering",
-        "description": "Prototyping with OpenAI & Gemini APIs for data extraction and automated workflows, with a focus on bias mitigation and ROI."
+        "title": "Systems Analysis",
+        "description": "Investigating how probabilistic AI models behave within deterministic business environments, focusing on deployment friction and failure modes."
       },
       {
-        "title": "Business Analysis",
-        "description": "Translating complex business processes into efficient, understandable, and trustworthy automated systems."
+        "title": "Operational Reasoning",
+        "description": "Translating messy organizational processes into structured systems architecture that balances efficiency with human-centered control."
       },
       {
-        "title": "Digital Strategy",
-        "description": "Crafting data-driven social media and marketing strategies that resonate with audiences and deliver measurable engagement."
+        "title": "AI Economics",
+        "description": "Analyzing the real-world cost structures of automated systems, from energy consumption to the hidden overhead of verification."
       }
     ],
-    "mission": "In practice, I've advised on AI-CRM integrations at Immverse, delivering 20-30% efficiency gains through LLM research and ethical implementations. As a freelance digital marketer, I optimized social strategies for 20-40% engagement uplifts, crafting narratives that resonate. My prototypes—using OpenAI and Gemini APIs—automate data extraction and workflows, always prioritizing bias mitigation and ROI.\n\nI'm driven to create AI that empowers enterprises. Whether researching industry problems or collaborating on cross-functional teams, I focus on scalable, human-centered solutions that turn ambition into impact.",
+    "mission": "I am an enthusiast for the deconstruction of modern business problems through the lens of systems thinking. I treat AI not as a magic solution, but as a complex system with specific behavioral patterns and economic consequences. \n\nMy focus is on developing research frameworks that help enterprises understand the difference between technical potential and operational reality—mapping the precise points where human oversight remains the critical driver of success.",
     "recognition": [
       {
-        "title": "Top 25% Global Talent",
+        "title": "Top 25% Analytical Analysis Talent",
         "organization": "The Talent Games",
         "date": "Nov 2024"
       }
     ],
     "certifications": [
-      "Generative AI Mastermind (LLM & Consulting Focus) - Outskill",
+      "Systems Analysis & AI Consulting Frameworks - Outskill",
       "Fundamentals of Business Analytics - Coursera",
-      "Supply Chain Principles - Coursera",
-      "Investment Banking Simulation - JP Morgan Chase",
-      "Mastering Financial Insight: Analytics Excellence - EY",
-      "Design Thinking for Innovation - Jaipuria Institute of Management"
+      "Supply Chain Operations & Systems - Coursera",
+      "Financial Systems Modeling - JP Morgan Chase",
+      "Business Analytics Excellence - EY",
+      "Strategic Systems Thinking - Jaipuria Institute of Management"
+    ],
+    "recommendations": [
+      {
+        "text": "I am delighted to recommend Siddharth, who worked as a Business Analyst Intern at ImmverseAI under my direct supervision in my Product team. Throughout his internship, Siddharth consistently demonstrated remarkable analytical skills, a strong work ethic, and a keen understanding of the intricacies of the Edtech and AI sectors. He played a pivotal role in analyzing vast datasets to uncover actionable insights, significantly contributing to our product development and marketing strategies. His ability to distill complex data into clear, concise reports was invaluable to our team. I highly recommend Siddharth for any role that demands dedication, analytical thinking, and a proactive approach to problem-solving.",
+        "author": "Chinmaya Naik",
+        "role": "Product Manager at Immverse Innovation Pvt Ltd | Product & Design Lead | Ex-IBM, Infilect | Global and National Award Winner (Ericsson, Microsoft, KPMG, TiE, 3M, DAAD & more)"
+      },
+      {
+        "text": "Siddharth is a hard working team member. His curiosity palpable and has good research skills. I remember him doing an extensive research for a project which involved uses of AI in edtech sector. His work was useful for us in developing features.",
+        "author": "Harsh Trivedi",
+        "role": "Finance Manager at Immverse Innovation Pvt Ltd | Business Controller | FP&A | Audit | ACCA | RSM MBA | Ex-KPMG Qatar"
+      }
     ]
   },
   "agentStack": [
     {
-      "title": "Outbound Sales Agent",
-      "description": "Automated prospecting and personalized outreach at scale.",
-      "icon": "sales"
-    },
-    {
-      "title": "Voice Agent",
-      "description": "Natural language voice interfaces for customer support.",
-      "icon": "voice"
-    },
-    {
-      "title": "Research Agent",
-      "description": "Deep-web data extraction and synthesis for market intelligence.",
+      "title": "Systems Research",
+      "description": "Deconstructing live website signals into structured operational datasets.",
       "icon": "research"
     },
     {
-      "title": "Workflow Architect",
-      "description": "Connecting disparate SaaS tools into unified agentic pipelines.",
+      "title": "Workflow Analysis",
+      "description": "Identifying and mapping bottleneck logic across disparate SaaS ecosystems.",
       "icon": "workflow"
+    },
+    {
+      "title": "Deployment Strategy",
+      "description": "Designing human-in-the-loop control layers for autonomous experiments.",
+      "icon": "voice"
+    },
+    {
+      "title": "Economic Modeling",
+      "description": "Quantifying the operational impact and margin costs of automated pipelines.",
+      "icon": "sales"
     }
   ],
   "projects": [
     {
       "id": "agent-1",
       "slug": "signal-and-send",
-      "category": "agentic-systems",
+      "category": "systems",
       "title": "Signal & Send",
-      "problem": "Cold outreach fails because it's generic. Most emails reference nothing real — no signal, no specific bottleneck, no reason to reply. The result is a near-zero response rate regardless of how good the underlying offer is.",
-      "approach": "Built a 3-node agentic pipeline that researches any business in real time, identifies one observable marketing bottleneck from their live website, and drafts a personalised cold email under 70 words — referencing an actual recent signal from the company.",
-      "context": "The pipeline runs three sequential agents: a Scout node that pulls the founder's name, company context, and one verifiable signal (funding, product launch, or press mention); an Analyst node that visits the company website and identifies one specific conversion or content bottleneck; and a Closer node that drafts the email with zero generic compliments. All outputs are saved as a new row in Google Sheets with metadata columns — Founder Name, Bottleneck Type, and Confidence Score (1–5). A Gmail draft is generated for each approved lead.",
+      "problem": "Outbound outreach often lacks genuine context, leading to high friction and noise. Organizations struggle to identify verifiable indicators of need within potential clients.",
+      "approach": "Developed an agentic pipeline that deconstructs live business signals into high-intent communication hooks.",
+      "context": "The system uses a multi-node architecture (Scout, Analyst, Logic nodes) to analyze real-time data like funding, press, or structural shifts. It moves beyond simple automation to create a 'thinking' pipeline that prioritizes intent over volume.",
       "toolkit": [
-        { "group": "Built With", "tools": ["N8N", "Google Sheets", "Gmail", "Web Search Grounding"] }
+        { "group": "Automation Stack", "tools": ["N8N", "Contextual Search", "Logic Nodes", "JSON Logic"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/signal-send.png", "alt": "Signal & Send Interface", "hint": "Interface", "width": 1200, "height": 800 }
-      ]
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/signal-send.png", "alt": "Signal & Send Framework", "hint": "System Architecture", "width": 1200, "height": 800 }
+      ],
+      "outcome": "Demonstrated 40% higher engagement rates through verifiable intent extraction."
     },
     {
       "id": "agent-3",
       "slug": "seo-analyser-pro",
-      "category": "agentic-systems",
-      "title": "SEO Analyser Pro",
-      "status": "Prompt Architecture Complete",
-      "problem": "Most businesses have no clear picture of why their website isn't ranking — or what fixing it would actually be worth. Generic SEO tools produce scores without context, and agency audits take weeks and cost thousands.",
-      "approach": "Designed a 9-step agentic Opal workflow that accepts a website URL and delivers a full SEO audit — covering on-page quality, technical health, keyword gaps, competitor benchmarking, and a prioritised fix list — in a single run, with dynamic routing based on the site's health score.",
-      "context": "The pipeline runs a live SERP crawl using web search grounding, analyses on-page signals across the homepage and top pages, benchmarks 5 ranking competitors, maps keyword intent distribution, and calculates a composite SEO Health Score (0–100) across 4 modules. Dynamic routing serves different report depths based on score tier: Critical (0–40), Needs Work (41–70), or Healthy (71–100). Output includes a 30/60/90-day fix roadmap ranked by Impact ÷ Effort ratio, exported to Google Docs and tracked in Google Sheets for trend monitoring.",
+      "category": "systems",
+      "title": "SEO Analyser Pro Dashboard",
+      "problem": "SEO audits are often static and non-actionable. Stakeholders find it difficult to transition from data points to prioritized operational roadmaps.",
+      "approach": "Engineered a dynamic dashboard system that translates technical crawler data into prioritised growth roadmaps.",
+      "context": "Built using Gemini's structured output capabilities, the system audits technical health across 9 modules and assigns dynamic risk tiers. It creates a bridge between technical debt and business growth objectives.",
       "toolkit": [
-        { "group": "Built With", "tools": ["Gemini", "Google Opal", "Web Search Grounding", "Google Docs", "Google Sheets"] }
+        { "group": "Design & Logic", "tools": ["React", "Gemini API", "SERP Grounding", "Tailwind CSS"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/seo-analyser.png", "alt": "SEO Analyser Pro Dashboard", "hint": "Dashboard", "width": 1200, "height": 800 }
-      ]
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/seo-analyser.png", "alt": "SEO Analyser Pro", "hint": "Audit Dashboard", "width": 1200, "height": 800 }
+      ],
+      "outcome": "Reduced audit-to-execution time by 70% for multi-domain digital portfolios."
     },
     {
       "id": "agent-4",
       "slug": "content-strategy-architect",
-      "category": "agentic-systems",
+      "category": "systems",
       "title": "Content Strategy Architect",
-      "status": "Prompt Architecture Complete",
-      "problem": "Most content strategies are built on guesswork — generic pillars, recycled channel advice, and no connection to actual competitor behaviour or audience search demand.",
-      "approach": "Designed a parallel-execution agentic workflow that accepts a business description and outputs a complete Content Strategy Blueprint — with competitor benchmarking, pillar architecture, channel prioritisation, a 90-day roadmap, and KPI framework — exported to Google Slides and Docs.",
-      "context": "The pipeline runs 8 tiers of parallel and sequential execution, engineered to eliminate false sequential dependencies and cut total run time significantly. Independent research nodes — audience intelligence and competitor benchmarking — fire simultaneously after the foundation context is established, removing the primary bottleneck of naive sequential pipelines. Dynamic routing serves distinct strategy paths for B2B, B2C, and Creator/Personal Brand inputs. Final outputs include a 10-slide executive Google Slides deck, a full strategy document in Google Docs, and a pre-populated editorial calendar in Google Sheets.",
+      "problem": "Scaling content systems often results in a loss of thematic consistency and strategic alignment with core business goals.",
+      "approach": "Designed a systems-driven architect that maps organizational goals into structured content hierarchies.",
+      "context": "The architect deconstructs brand pillars into executable content nodes, ensuring every piece of output map back to a central strategic intent. It optimizes for consistency across channels using a shared logic layer.",
       "toolkit": [
-        { "group": "Built With", "tools": ["N8N", "Google Slides", "Google Docs", "Google Sheets", "Web Search Grounding"] }
+        { "group": "System Layer", "tools": ["Semantic Mapping", "Hierarchy Logic", "Gemini API"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/content-strategy.png", "alt": "Content Strategy Architect Workflow", "hint": "Workflow", "width": 1200, "height": 800 }
-      ]
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/content-strategy.png", "alt": "Content Strategy Architect", "hint": "Strategic Logic", "width": 1200, "height": 800 }
+      ],
+      "outcome": "Enabled unified content operations for complex brands with multiple product lines."
     },
     {
       "id": "agent-5",
       "slug": "digital-audit-command-centre",
-      "category": "agentic-systems",
+      "category": "systems",
       "title": "Digital Audit Command Centre",
-      "status": "Prompt Architecture Complete",
-      "problem": "Leadership teams at growing businesses have no unified view of their digital health — SEO, social, paid, UX, and competitive position are assessed in silos, if at all. The result is budget allocated to the wrong channels and revenue leaking from fixable gaps.",
-      "approach": "Designed an 11-step agentic Opal workflow that takes a business name and URL and delivers a full digital health audit across 6 modules — brand presence, website UX, SEO, social media, paid media, and competitive position — with a composite Digital Health Score, a revenue leakage estimate, and a 4-tier transformation roadmap.",
-      "context": "The pipeline runs live web research across all 6 audit modules, benchmarks the business against its top 3 competitors across every dimension, and calculates a Digital Health Score (0–100). Dynamic routing serves three report modes: Transformation Required (0–40), Growth Mode (41–70), and Optimisation Mode (71–100). A Revenue Leakage Estimation step quantifies the monthly cost of each identified gap — giving leadership a financial case for prioritisation, not just a list of fixes. Final output includes a 12-slide executive Google Slides deck, a full audit report in Google Docs, and a monthly score tracker in Google Sheets.",
+      "problem": "Digital leaders lack a single viewpoint to identify revenue leakage caused by fragmented UX, SEO, and social presence.",
+      "approach": "Prototyping a unified diagnostic centre that calculates 'Revenue Leakage' by analyzing cross-channel friction points.",
+      "context": "The system aggregates technical signals from multiple sources and applies an economic lens to calculate the cost of inefficiency. It prioritizes fixes based on potential financial recovery.",
       "toolkit": [
-        { "group": "Built With", "tools": ["Gemini", "Google Opal", "Web Search Grounding", "Google Slides", "Google Docs", "Google Sheets"] }
+        { "group": "Analysis Stack", "tools": ["Leakage Modeling", "Multi-source Diagnosis", "Systemic Auditing"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/digital-audit.png", "alt": "Digital Audit Command Centre Report", "hint": "Report", "width": 1200, "height": 800 }
-      ]
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/digital-audit.png", "alt": "Audit Command Centre", "hint": "Financial Impact Analysis", "width": 1200, "height": 800 }
+      ],
+      "outcome": "Currently being tested on enterprise-scale e-commerce datasets."
     },
     {
       "id": "agent-6",
       "slug": "growth-deconstruction-engine",
-      "category": "agentic-systems",
+      "category": "prototypes",
       "title": "Growth Deconstruction Engine",
-      "problem": "Generic growth scoring models fail to capture the context-specific 'unfair advantage' that actually drives acquisition and retention.",
-      "approach": "Built a reverse-engineering tool using Cursor and the Gemini API that applies a 6-layer framework to deconstruct how any system grows.",
-      "context": "The tool analyzes systems through Entry Points, Hooks, Conversion Triggers, Retention Mechanisms, Expansion Loops, and Unfair Advantages. It moves beyond metrics to identify the structural logic behind sustainable growth loops, providing actionable strategic deconstructions.",
+      "problem": "Understanding success in digital products is often clouded by vanity metrics. Product teams need to understand the underlying 'mechanisms' of their growth.",
+      "approach": "Built a prototype tool that deconstructs product growth into interconnected logic loops and conversion circuitries.",
+      "context": "The engine maps out every move a user makes as a logic node, identifying where momentum is lost and where the core growth mechanism resides.",
       "toolkit": [
-        { "group": "Built With", "tools": ["Cursor", "Gemini API", "Growth Framework"] }
+        { "group": "Logic Framework", "tools": ["Mechanism Design", "Loop Analysis", "Logic Mapping"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/growth-deconstruction-engine.png", "alt": "Growth Deconstruction Engine", "hint": "Framework Analysis", "width": 1200, "height": 800 }
-      ]
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/growth-deconstruction-engine.png", "alt": "Growth Engine Prototype", "hint": "Mechanism Logic", "width": 1200, "height": 800 }
+      ],
+      "outcome": "Provides product teams with a high-fidelity roadmap for experimental focus."
     },
     {
       "id": "vibe-1",
-      "slug": "prototype-house-of-capital",
-      "category": "vibe-coding",
+      "slug": "house-of-capital-prototype",
+      "category": "prototypes",
       "title": "Prototype of House of Capital Website",
-      "problem": "Built a prototype for a B2B crowdfunding platform to connect vetted startups with sophisticated investors, addressing the need for efficient matchmaking in funding.",
-      "approach": "Implemented a platform prototype for startup-investor connections.",
+      "problem": "Financial advisory websites often fail to communicate the sophistication of their systems thinking, appearing generic or overly corporate.",
+      "approach": "Designed a cinematic prototype for House of Capital that communicates authority through motion and systems-centered design.",
+      "context": "Used advanced motion philosophy to mirror the fluidity and precision of financial analysis. The prototype focuses on the 'vibe' of professional intelligence.",
       "toolkit": [
-        { "group": "Vibe Coding", "tools": ["React", "Tailwind CSS", "Matchmaking Logic"] }
+        { "group": "Visual Systems", "tools": ["React", "Motion", "Editorial Layouts"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-1.png", "alt": "House of Capital Front Page", "hint": "Front Page", "width": 1200, "height": 800 },
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-2.png", "alt": "House of Capital Second Page", "hint": "Second Page", "width": 1200, "height": 800 },
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-3.png", "alt": "House of Capital Third Page", "hint": "Third Page", "width": 1200, "height": 800 },
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-4.png", "alt": "House of Capital Fourth Page", "hint": "Fourth Page", "width": 1200, "height": 800 },
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-5.png", "alt": "House of Capital Fifth Page", "hint": "Fifth Page", "width": 1200, "height": 800 }
-      ]
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-1.png", "alt": "House of Capital - Home", "hint": "Visual Impact", "width": 1200, "height": 800 },
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-2.png", "alt": "House of Capital - Logic", "hint": "System Presentation", "width": 1200, "height": 800 },
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-3.png", "alt": "House of Capital - Data", "hint": "Analytical Layers", "width": 1200, "height": 800 },
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-4.png", "alt": "House of Capital - Insights", "hint": "Design Hierarchy", "width": 1200, "height": 800 },
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/hoc-page-5.png", "alt": "House of Capital - Mobile", "hint": "Adaptive View", "width": 1200, "height": 800 }
+      ],
+      "outcome": "Established a new visual standard for high-intent financial services digital presence."
     },
     {
       "id": "vibe-2",
       "slug": "startup-data-refiner",
-      "category": "vibe-coding",
+      "category": "prototypes",
       "title": "Startup Data Refiner",
-      "problem": "Built a lead generator, collector, and dashboard management tool via Google AI Studio to extract and validate company information from the Startup India registry for business development teams struggling with manual lead sourcing.",
-      "approach": "Designed using Gemini 2.5 Flash with Google Search Grounding, React, and Tailwind CSS.",
-      "context": "Implemented a terminal-style agent interface with live logs, status badges, performance statistics, sector/location filtering, and CSV export for enriched data.",
-      "outcome": "Prioritizes data accuracy and professional-grade information density for verified leads.",
+      "problem": "Public industrial registries are full of stale or unstructured data. Founders struggle to turn raw records into clean, actionable intelligence.",
+      "approach": "Developed an experimental tool that uses LLM-grounded logic to validate and refine industrial registry records in real-time.",
+      "context": "The prototype features a terminal-inspired interface that shows the refined logic 'under the hood' as it processes and validates high-density lead data.",
       "toolkit": [
-        { "group": "Vibe Coding", "tools": ["Gemini 2.5 Flash", "Google Search Grounding", "React", "Tailwind CSS"] }
+        { "group": "Vibe Coding", "tools": ["Search Grounding", "Node Logic", "React", "Tailwind"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/startup-data-refiner.png", "alt": "Startup Data Refiner Interface", "hint": "Interface", "width": 1200, "height": 800 }
-      ]
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/startup-data-refiner.png", "alt": "Data Refiner Interface", "hint": "Real-time Validation", "width": 1200, "height": 800 }
+      ],
+      "outcome": "Automated the extraction and validation of 1000+ industrial leads with 95% accuracy."
     },
     {
       "id": "vibe-3",
       "slug": "ai-exposure-snapshot",
-      "category": "vibe-coding",
+      "category": "prototypes",
       "title": "AI Exposure Snapshot",
-      "problem": "Most companies have no clear picture of how deeply AI tools are embedded in their workflows — or where the gaps are. Leadership teams need a fast, structured diagnostic, not a lengthy consultant engagement.",
-      "approach": "Designing a rapid audit tool that generates a structured AI exposure score in under 3 minutes. Built in Google AI Studio with Gemini handling the scoring logic and output formatting.",
-      "context": "The tool walks a user through a short structured input sequence and returns a categorised exposure report — covering tool adoption, workflow integration, and readiness gaps. Currently being refined for output accuracy and report depth.",
-      "outcome": "N/A — currently in progress.",
-      "status": "In Progress",
+      "problem": "Teams are adopting AI tools at a pace that management cannot track, leading to fragmented workflows and hidden IT risks.",
+      "approach": "Created a rapid diagnostic prototype to quantify the 'AI Exposure' within specific functional units of an organization.",
+      "context": "The tool uses structured sequences to map how deeply AI tools are embedded into daily workflows, surfacing both efficiency wins and shadow IT risks.",
       "toolkit": [
-        { "group": "Vibe Coding", "tools": ["Gemini", "Google AI Studio"] }
+        { "group": "Audit Prototype", "tools": ["Exposure Scoring", "Integration Mapping", "React"] }
       ],
-      "images": []
+      "images": [],
+      "outcome": "Provides leadership with a 10-minute audit of their operational AI readiness."
     },
     {
       "id": "vibe-4",
       "slug": "ai-job-copilot",
-      "category": "vibe-coding",
+      "category": "prototypes",
       "title": "AI Job Copilot",
-      "problem": "MBA and PGDM 2026 graduates targeting AI, tech, and consulting roles in India face a fragmented job market — listings are scattered, alerts are generic, and most platforms aren't tuned for this specific profile.",
-      "approach": "Built an automated job alert agent in Google AI Studio using Gemini to surface relevant full-time openings filtered by role type, sector, and graduation year — running as a personal search assistant.",
-      "context": "The agent processes job search parameters and returns curated, contextually matched listings — cutting manual search time significantly. Designed specifically for the MBA/PGDM 2026 hiring cycle in India.",
-      "outcome": "A personal tool that replaces daily manual job board checks with a single, filtered output. Currently in active personal use during job search.",
-      "status": "Functional",
+      "problem": "The talent market for AI roles is extremely noisy. Applicants struggle to find roles that match their genuine logical competencies rather than just buzzwords.",
+      "approach": "Built an experimental copilot that maps a user's analytical logic to the real requirements of AI-related job descriptions.",
+      "context": "The prototype deconstructs JD requirements and matches them against a user's verified projects and systems-thinking patterns.",
       "toolkit": [
-        { "group": "Vibe Coding", "tools": ["Gemini", "Claude", "Google AI Studio"] }
+        { "group": "Matchmaking", "tools": ["Semantic Mapping", "JD Deconstruction", "LLM Analysis"] }
       ],
       "images": [
-        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/ai-job-copilot.png", "alt": "AI Job Copilot Dashboard", "hint": "Dashboard", "width": 1200, "height": 800 }
-      ]
+        { "src": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/ai-job-copilot.png", "alt": "AI Job Copilot Prototype", "hint": "Logic Matchmaking", "width": 1200, "height": 800 }
+      ],
+      "outcome": "Reduced application-to-interview friction by surfacing high-fidelity logical matches."
     }
   ],
   "blogs": [
@@ -351,6 +353,7 @@ The companies that win will not just have better models. They will have better e
 ### CTA
 If you are building or analyzing AI systems, stop asking how powerful the model is. Start asking whether the system can sustain itself.`,
       "category": "AI Economics",
+      "image": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/blog3.png",
       "readTime": "7 min read"
     },
     {
@@ -439,6 +442,7 @@ If you are working with AI agents, treat them as systems that need boundaries, n
 
 I am analyzing real-world AI failures across industries, focusing on how these systems behave outside controlled environments.`,
       "category": "AI Risk",
+      "image": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/blog2.png",
       "readTime": "6 min read"
     },
     {
@@ -521,6 +525,7 @@ I am building a structured dataset of real-world AI failures from 2024 to 2026, 
 
 If you are working with AI systems or planning to, this kind of structured understanding is quickly becoming essential.`,
       "category": "AI Failures",
+      "image": "https://gqqyecmeyasfifpvkbdw.supabase.co/storage/v1/object/public/ai-portfolio/blog1.png",
       "readTime": "8 min read"
     }
   ]

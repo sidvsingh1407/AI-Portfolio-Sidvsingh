@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Starfield from './components/Starfield';
+import MachineReadableLayer from './components/MachineReadableLayer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -51,6 +52,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen relative overflow-x-hidden">
+        <MachineReadableLayer />
         <div className="noise" />
         <Header />
         <ScrollToTop />
@@ -59,10 +61,10 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/agentic-systems" element={<Projects />} />
-            <Route path="/vibe-coding" element={<Projects />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/systems" element={<Projects />} />
+            <Route path="/prototypes" element={<Projects />} />
+            <Route path="/insights" element={<Blog />} />
+            <Route path="/insights/:slug" element={<BlogPost />} />
           </Routes>
         </main>
         <Footer />

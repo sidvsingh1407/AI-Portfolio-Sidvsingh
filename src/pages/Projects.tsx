@@ -9,13 +9,13 @@ const Projects: React.FC = () => {
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<{ projectId: string, index: number } | null>(null);
   
-  const category = location.pathname.includes('agentic-systems') ? 'agentic-systems' : 'vibe-coding';
+  const category = location.pathname.includes('systems') ? 'systems' : 'prototypes';
   
   const filteredProjects = contentData.projects.filter(p => p.category === category);
-  const title = category === 'agentic-systems' ? 'Agentic Systems' : 'Vibe Coding';
-  const subtitle = category === 'agentic-systems' 
-    ? "Multi-step AI pipelines engineered for research, outreach, and business intelligence."
-    : "Experimental projects at the intersection of human intuition and LLM logic.";
+  const title = category === 'systems' ? 'Systems' : 'Prototypes';
+  const subtitle = category === 'systems' 
+    ? "Analytical explorations of automated pipelines engineered for operational resilience."
+    : "Applied explorations and creative architectures deconstructing human-AI workflows.";
 
   const toggleExpand = (projectId: string) => {
     setExpandedProjectId(prev => prev === projectId ? null : projectId);

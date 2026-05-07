@@ -130,7 +130,7 @@ const BlogPost: React.FC = () => {
   }, [slug]);
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/insights" replace />;
   }
 
   return (
@@ -142,7 +142,7 @@ const BlogPost: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <Link 
-            to="/blog"
+            to="/insights"
             className="mb-12 flex items-center gap-3 text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-off-white/40 hover:text-gold transition-colors group"
           >
             <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Insights
