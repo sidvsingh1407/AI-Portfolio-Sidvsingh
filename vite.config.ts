@@ -17,24 +17,15 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, './src'),
       },
     },
-    envPrefix: ['VITE_'],
+    base: '/',
     server: {
       port: 3000,
       host: '0.0.0.0',
     },
     build: {
-      target: 'esnext',
-      minify: 'terser',
-      cssMinify: true,
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'vendor-react': ['react', 'react-dom'],
-            'vendor-router': ['react-router-dom'],
-            'vendor-ai': ['@google/genai'],
-          },
-        },
-      },
+      outDir: 'dist',
+      emptyOutDir: true,
+      sourcemap: false,
     },
   };
 });

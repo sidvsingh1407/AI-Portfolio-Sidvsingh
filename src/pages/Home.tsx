@@ -136,8 +136,8 @@ const Home: React.FC = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tight mb-10 md:mb-16 leading-[0.9] text-off-white"
           >
-            AI <span className="shimmer-text italic font-serif px-2 md:px-4">Enthusiast</span> <br className="hidden sm:block"/> 
-            <span className="text-xl sm:text-3xl md:text-5xl lg:text-6xl block mt-4 md:mt-8 opacity-80 font-medium tracking-normal text-gold/90">for Modern AI Business Problems.</span>
+            <span className="shimmer-text italic font-serif px-2 md:px-4">Explorer</span> <br className="hidden sm:block"/> 
+            <span className="text-xl sm:text-3xl md:text-5xl lg:text-6xl block mt-4 md:mt-8 opacity-80 font-medium tracking-normal text-gold/90"><span className="text-off-white">for Modern</span> AI Business Problems.</span>
           </motion.h1>
           
           <motion.div 

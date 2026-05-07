@@ -2,16 +2,20 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { contentData } from '../content';
-import { ChevronDown, ChevronUp, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronUp, X, ChevronLeft, ChevronRight, Share, Check } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const location = useLocation();
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<{ projectId: string, index: number } | null>(null);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   
   const category = location.pathname.includes('systems') ? 'systems' : 'prototypes';
   
-  const filteredProjects = contentData.projects.filter(p => p.category === category);
+  const filteredProjects = React.useMemo(() => 
+    contentData.projects.filter(p => p.category === category),
+    [category]
+  );
   const title = category === 'systems' ? 'Systems' : 'Prototypes';
   const subtitle = category === 'systems' 
     ? "Analytical explorations of automated pipelines engineered for operational resilience."
@@ -44,6 +48,18 @@ const Projects: React.FC = () => {
 
   const closeLightbox = () => setLightbox(null);
 
+  const copyToClipboard = async (projectId: string) => {
+    const baseUrl = window.location.href.split('#')[0];
+    const url = `${baseUrl}#${location.pathname}#${projectId}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopiedId(projectId);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy link: ', err);
+    }
+  };
+
   const navigateLightbox = useCallback((direction: 'next' | 'prev') => {
     if (!lightbox) return;
     const project = filteredProjects.find(p => p.id === lightbox.projectId);
@@ -55,6 +71,21 @@ const Projects: React.FC = () => {
     
     setLightbox({ ...lightbox, index: newIndex });
   }, [lightbox, filteredProjects]);
+
+  useEffect(() => {
+    // Automatically expand project if hash is present
+    const idFromHash = location.hash.replace('#', '');
+    if (idFromHash && filteredProjects.some(p => p.id === idFromHash)) {
+      setExpandedProjectId(idFromHash);
+      // Wait for expansion animation/render
+      setTimeout(() => {
+        const element = document.getElementById(idFromHash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 500);
+    }
+  }, [location.hash, filteredProjects]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -144,10 +175,10 @@ const Projects: React.FC = () => {
               >
                 {/* Image Preview */}
                 <div 
-                  className="aspect-video overflow-hidden bg-charcoal/40 mb-8 md:mb-12 cursor-pointer relative border border-off-white/5 group/img"
+                  className="relative w-full min-h-[250px] md:min-h-[450px] overflow-hidden bg-charcoal/60 mb-8 md:mb-12 cursor-pointer border border-off-white/5 group/img flex items-center justify-center p-4"
                   onClick={() => project.images && project.images.length > 0 && setLightbox({ projectId: project.id, index: 0 })}
                 >
-                  <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 z-10" />
+                  <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 z-10" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 z-20 transition-opacity">
                     <span className="px-4 py-2 bg-charcoal/80 text-gold text-[10px] font-bold uppercase tracking-widest border border-gold/30">View Gallery</span>
                   </div>
@@ -157,7 +188,7 @@ const Projects: React.FC = () => {
                       alt={project.images[0].alt} 
                       loading="lazy"
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100"
+                      className="max-w-full max-h-full object-contain grayscale group-hover/img:grayscale-0 transition-all duration-1000"
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-off-white/20 space-y-4">
@@ -171,7 +202,23 @@ const Projects: React.FC = () => {
                 {/* Header */}
                 <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
                   <div className="flex justify-between items-start">
-                    <span className="text-gold font-bold text-[10px] md:text-xs uppercase tracking-[0.4em] opacity-40">Section {idx + 1}</span>
+                    <div className="flex items-center gap-4">
+                      <span className="text-gold font-bold text-[10px] md:text-xs uppercase tracking-[0.4em] opacity-40">Section {idx + 1}</span>
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); copyToClipboard(project.id); }}
+                        className="flex items-center gap-2 group/share px-2 py-1 -ml-2 rounded hover:bg-off-white/5 transition-all text-off-white/20 hover:text-gold"
+                        title="Copy project link"
+                      >
+                        {copiedId === project.id ? (
+                          <Check className="w-3 h-3 text-gold" />
+                        ) : (
+                          <Share className="w-3 h-3" />
+                        )}
+                        <span className="text-[8px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover/share:opacity-40 transition-opacity">
+                          {copiedId === project.id ? 'Copied' : 'Share'}
+                        </span>
+                      </button>
+                    </div>
                     {project.status && (
                       <span className="px-3 py-1 bg-gold text-charcoal text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
                         {project.status}
@@ -262,10 +309,10 @@ const Projects: React.FC = () => {
                           {project.images.map((img, iIdx) => (
                             <div 
                               key={iIdx} 
-                              className="aspect-square overflow-hidden cursor-pointer relative group/thumb border border-off-white/5"
+                              className="aspect-square overflow-hidden cursor-pointer relative group/thumb border border-off-white/10 bg-charcoal/40 flex items-center justify-center p-2"
                               onClick={() => setLightbox({ projectId: project.id, index: iIdx })}
                             >
-                              <div className="absolute inset-0 bg-gold/30 opacity-0 group-hover/thumb:opacity-100 transition-opacity z-10 flex items-center justify-center">
+                              <div className="absolute inset-0 bg-gold/20 opacity-0 group-hover/thumb:opacity-100 transition-opacity z-10 flex items-center justify-center">
                                 <span className="text-[8px] font-bold uppercase tracking-widest text-charcoal bg-gold px-2 py-1">View</span>
                               </div>
                               <img 
@@ -273,7 +320,7 @@ const Projects: React.FC = () => {
                                 alt={img.alt} 
                                 loading="lazy"
                                 referrerPolicy="no-referrer"
-                                className="w-full h-full object-cover grayscale group-hover/thumb:grayscale-0 transition-all duration-700"
+                                className="max-w-full max-h-full object-contain grayscale group-hover/thumb:grayscale-0 transition-all duration-700"
                               />
                             </div>
                           ))}

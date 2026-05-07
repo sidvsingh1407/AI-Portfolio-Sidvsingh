@@ -53,6 +53,7 @@ const App: React.FC = () => {
     <Router>
       <div className="min-h-screen relative overflow-x-hidden">
         <MachineReadableLayer />
+        <Starfield />
         <div className="noise" />
         <Header />
         <ScrollToTop />

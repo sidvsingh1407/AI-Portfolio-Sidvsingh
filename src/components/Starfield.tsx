@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 
 const Starfield: React.FC = () => {
   const stars = useMemo(() => {
-    return Array.from({ length: 250 }).map((_, i) => {
+    return Array.from({ length: 150 }).map((_, i) => {
       const size = Math.random() * 2 + 1;
       const left = Math.random() * 100;
       const top = Math.random() * 100;

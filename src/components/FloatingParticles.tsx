@@ -22,8 +22,8 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
   const mousePosition = useRef({ x: -1000, y: -1000 });
   const animationFrameId = useRef<number | null>(null);
 
-  // Increased cap for hero immersion
-  const actualCount = Math.min(particleCount, 800);
+  // Capped for stability while maintaining cinematic atmosphere
+  const actualCount = Math.min(particleCount, 650);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -193,6 +193,7 @@ const FloatingParticles: React.FC<FloatingParticlesProps> = ({
     init();
 
     const render = () => {
+      if (!ctx || !width || !height) return;
       ctx.clearRect(0, 0, width, height);
       particles.forEach(p => {
         p.update();
